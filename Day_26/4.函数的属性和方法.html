@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script>
+	//Student是函数,也是class类型的对象
+	//所以Student也是拥有属性和方法的
+	
+	function Student(newName,newId,newAge){
+		this.id = newId;
+		this.name = newName;
+		this.age = newAge;
+// 		this.eat = function(){
+// 			console.log("eat()");
+// 		}
+	}
+	Student.prototype.eat = function(){
+		console.log("eat()");
+	}
+	Student.prototype.sleep = function(){
+		console.log("sleep()");
+	}
+	Student.prototype.tall = "180";
+	//对象
+	let s1 = new Student();
+	let s2 = new Student();
+	s1.eat();
+	s2.eat();
+	s1.sleep();
+	s2.sleep();
+	s1.tall = "183";//
+	delete s1.tall;   
+	console.log(s1.tall);
+	console.log(s2.tall);
+	
+</script>

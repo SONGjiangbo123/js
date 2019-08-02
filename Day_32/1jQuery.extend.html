@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+	<body>
+		
+	</body>
+</html>
+<script src="jQuery.js"></script>
+<script>
+	$(function(){
+		//a.添加全局方法
+		//jQuery == $
+// 		jQuery.fun = function(){
+// 			console.log("hello lao wang");
+// 		}
+// 		jQuery.fun1 = function(){
+// 			console.log("hello 王昊元");
+// 		}
+// 		$.fun();
+// 		$.fun1();
+		//b.extend
+// 		$.extend({
+// 			sayHello:function(str){
+// 				console.log(str + "sayHello");
+// 			}
+// 		});
+// 		$.sayHello("蔡徐坤");
+		//c.命名空间:解决命名危机
+		$.mySpaceName = {
+			sayHello:function(str){
+				console.log(str + "sayHello");
+			},
+			sayGoodBye:function(str){
+				console.log(str + "sayGoodBye");
+			}
+		};
+		$.mySpaceName.sayHello("蔡徐坤");
+		$.mySpaceName.sayGoodBye("蔡徐坤");
+	});
+</script>

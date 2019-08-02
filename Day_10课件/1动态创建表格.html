@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+	<body>
+		
+	</body>
+</html>
+<script>
+	var table = document.createElement("table");
+	table.border = "1px";
+	var count = 0;
+	
+	for(var i=0; i<3; i++){
+		var tr = document.createElement("tr");
+		for(var j=0; j<3; j++){
+			var td = document.createElement("td");
+			td.innerHTML = count++;
+			tr.appendChild(td);
+		}
+		table.appendChild(tr);
+		//在每行继续添加一个单元格
+		var delTd = document.createElement("td");
+		delTd.innerHTML = "删除";
+		tr.appendChild(delTd);
+		
+		//异步操作:在事件操作中,this代表触发该事件的对象本身
+		delTd.onclick = function(){
+			this.parentNode.remove();
+		}
+	}
+	
+	document.body.appendChild(table);
+</script>

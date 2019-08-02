@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<p>
+			<input type="radio" name="myImg" onclick="book()"/> 西游记
+			<input type="radio" name="myImg" onclick="book()"/> 红楼梦
+		</p>
+		<img id="oImg"/>
+		<span></span>
+	</body>
+</html>
+<script>
+	var oRadio = document.getElementsByTagName("input");
+	var oImg = document.getElementById("oImg");
+	
+	function book(){
+		if(oRadio[0].checked){
+			oImg.src = "img/dog.jpg";
+			oImg.nextElementSibling.innerHTML = "我爱学编程";
+		}else{
+			//oImg.src = "img/dog.jpg";
+			oImg.setAttribute("src","img/mai.jpg");
+			oImg.nextElementSibling.innerHTML = "我爱睡觉";
+		}
+	}
+</script>

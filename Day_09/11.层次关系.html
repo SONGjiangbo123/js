@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body id = "bd">
+		<p>你好123!</p>
+        <ul>
+            <li>1111</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+        </ul>	
+	</body>
+</html>
+<script>
+	var bd = document.getElementById("bd");
+	//var str = bd.firstChild.nextSibling.innerHTML;
+	var str = bd.firstElementChild.nextElementSibling.firstElementChild.innerHTML;
+	console.log(str);
+</script>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    ._div{
+        width: 320px;
+        height: 30px;
+        display: flex;
+        border: 1px solid red;
+    }
+    span{
+        display: block;
+        width: 80px;
+        height: 30px;
+        border: 1px solid red;
+        text-align: center;
+        line-height: 30px;
+    }
+    ._div1{
+        text-align: center;
+        width: 320px;
+        height: 300px;
+        border:1px solid red;
+    }
+   
+    </style>
+</head>
+<body>
+    <div class="_div">
+        <span>充话费</span>
+        <span>充流量</span>
+        <span>充固话</span>
+        <span>充宽带</span>
+    </div>
+    <div class="_div1">
+       <img src="images/1.png">
+    </div>
+    <script>
+        var _span=document.getElementsByTagName("span"),
+            _img=document.getElementsByTagName("img");
+            _span[0].style.backgroundColor="red";
+    for(var i=0;i<_span.length;i++){
+        _span[i].index=i+1;
+        _span[i].onclick=function(){
+            for(var j=0;j<_span.length;j++){
+                _span[j].style.backgroundColor="";
+            }
+            this.style.backgroundColor="red";
+          
+            // _img[0].setAttribute("src","images/"+this.index+".png");
+            _img[0].src="images/"+this.index+".png";
+          
+        }
+    }
+    </script>
+</body>
+</html>

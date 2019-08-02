@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script>
+	//type:
+	//url:
+	//isAsyn:
+	//data:
+	//callBack:
+	function myAjax(type,url,isAsyn,data,callBack){
+		
+		let xhr;
+        if (window.ActiveXObject) {
+            //ie
+            xhr = new ActiveXObject("Microsoft.XMLHttp");
+        } else {
+            //非ie
+            xhr =  new XMLHttpRequest();
+        }
+		
+		type = type.toLowerCase();
+		
+		if(type == "get"){
+			let urlParam = url;
+			if(data != ""){
+				urlParam += "?" + data;
+			}
+			xhr.open(type,urlParam,isAsyn);
+			xhr.send();
+		}else{
+			xhr.open(type,url,isAsyn);
+			xhr.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+			xhr.send(data);
+		}
+		
+		xhr.onreadystatechange = function(){
+			if(xhr.readyState == 4 && xhr.status == 200){
+				callBack(xhr.responseText);
+			}
+		}
+	}
+	
+	function fun(str){
+		console.log(str);
+	}
+	
+	myAjax("get","5myAjax.php",true,"name=laowang&pwd=123",fun);
+	myAjax("post","5myAjax.php",true,"name=xiaoming&pwd=666",fun);
+</script>

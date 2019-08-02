@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<ul>
+			<li>1</li>
+			<li>2</li>
+			<li>3</li>
+			<li>4</li>
+			<li>5</li>
+		</ul>
+		<button id="btn">添加</button>
+	</body>
+</html>
+<script>
+	var oBtn = document.getElementById("btn");
+	oBtn.onclick = function(){
+		var e = document.createElement("li");
+		e.innerHTML = "laowang";
+		document.querySelector("ul").appendChild(e);
+	}
+	
+	var oUl = document.querySelector("ul");
+	
+	oUl.onmouseover = function(evt){
+		var e = evt || event;
+		
+		var target = e.target || e.srcElement;
+		
+		if(target.tagName == "LI"){
+			target.style.background = "red";
+		}
+	}
+	
+	oUl.onmouseout = function(evt){
+		var e = evt || event;
+		
+		var target = e.target || e.srcElement;
+		
+		if(target.tagName == "LI"){
+			target.style.background = "";
+		}
+	}
+</script>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script>
+	//计数器
+// 	function fun(){
+// 		var count = 0;
+// 		return ++count;
+// 	}
+// 	console.log(fun());
+// 	console.log(fun());
+
+// 	var count = 0;
+// 
+// 	function fun(){
+// 		return ++count;
+// 	}
+// 	console.log(fun());
+// 	console.log(fun());
+
+// 	function fun(){
+// 		var count = 0;
+// 		function add(){
+// 			++count;
+// 			return count;
+// 		}
+// 		return add;
+// 	}
+// 	
+// 	var f1 = fun();
+// 	console.log(f1());
+// 	console.log(f1());
+// 	console.log(f1());
+
+	//变身
+// 	function fun(){
+// 		var count = 0;
+// 		return function(){
+// 			++count;
+// 			return count;
+// 		}
+// 	}
+// 	
+// 	var f1 = fun();
+// 	console.log(f1());
+// 	console.log(f1());
+// 	console.log(f1());
+	
+	//继续变身
+	var f1 = (function(){
+		var count = 0;
+		return function(){
+			++count;
+			return count;
+		}
+	}());
+	
+
+	console.log(f1());
+	console.log(f1());
+	console.log(f1());
+	
+</script>

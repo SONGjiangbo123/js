@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			#box{
+				width:100px;
+				height: 100px;
+				background: #FF0000;
+				position: absolute;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box">
+			
+		</div>
+	</body>
+</html>
+<script>
+	var oBox = document.querySelector("#box");
+	
+	document.oncontextmenu = function(evt){
+		var e = evt || event;
+		
+		oBox.style.left = e.pageX + "px";
+		oBox.style.top = e.pageY + "px";
+		
+		//阻止浏览器默认事件
+		//e.preventDefault();
+		//e.returnValue = false;
+		//e.preventDefault?e.preventDefault():e.returnValue = false;
+		return false;
+	}
+</script>

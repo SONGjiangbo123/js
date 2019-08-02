@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script>
+	
+// 	fun();
+// 	
+// 	function fun(){
+// 		console.log("heihei");
+// 	}
+
+// 	test();
+// 	var test = function(){
+// 		console.log("heihei");
+// 	}
+	
+// 	var fun = new Function("console.log('haha')");
+// 	fun();
+//	add(12,2);
+//	var add = new Function("sN", "sM","console.log(sN+sM)");
+
+//     function f1(){
+//       var n = 250;
+//       function f2(){
+//             n++;  
+//             console.log(n);
+//       }
+//       return f2;
+//     }
+// 	
+// 	let fun1 = f1(); //f2
+// 	fun1();//f2()
+// 	fun1();
+// 	
+// 	let fun2 = f1(); 
+// 	fun2();
+// 	fun2();
+
+// 	function fun(){
+// 		for(let i=0; i<arguments.length; i++){
+// 			console.log(arguments[i]);
+// 		}
+// 	}
+// 	fun(11,22,33,44,55);
+
+	function fun(n){
+		
+		let c = 0;
+		if(n==1){
+			c = 1;
+		}else{
+			c = arguments.callee(n-1)*n;
+		}
+		return c;
+	}
+	
+	console.log(fun(5));
+</script>

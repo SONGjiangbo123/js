@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script src="jQuery.js"></script>
+<script>
+	$(function() {
+		$.extend({
+			option: function(l, r, opt) {
+				switch (opt) {
+					case "+":
+						return l + r;
+						break;
+					case "-":
+						return l - r;
+						break;
+					case "*":
+						return l * r;
+						break;
+					case "/":
+						return l / r;
+						break;
+				}
+			}
+		});
+		
+		console.log($.option(3,5,"*"));
+	});
+</script>

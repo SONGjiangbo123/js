@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script>
+	function Person(newName,newId){
+		this.name = newName;
+		this.id = newId;
+	}
+	
+// 	Person.prototype.eat = function(){
+// 		console.log("eat");
+// 	}
+	
+	function Student(newName,newId,newScore){
+		//借用构造方法,也叫作继承
+		Person.call(this,newName,newId);
+		this.score = newScore;
+	}
+	
+	let s = new Student("王昊元",666,90);
+	
+	console.log(s.name,s.id,s.score);
+	
+	s.eat();
+</script>

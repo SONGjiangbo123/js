@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+            div{
+                width: 200px;
+                position: absolute;
+            }
+        </style>
+	</head>
+	<body>
+
+	</body>
+</html>
+<script>
+	class WaterFall{
+		constructor() {
+		    
+		}
+		createDiv(){
+			for(let i=0; i<14; i++){
+				let div = document.createElement("div");
+				let rnd = Math.round(Math.random()*300+50);
+				div.innerHTML = i;
+				div.style.height = rnd + "px";
+				//div.style.background = "url(img/"+i+".jpg)";
+				div.date_src = "url(img/" + i + ".jpg)";
+				div.style.backgroundSize = "200px " + rnd + "px";
+				document.body.appendChild(div);
+				this.change();
+			}
+		}
+		change(){
+			let n = Math.floor(window.innerWidth/210);
+			let oDiv = document.getElementsByTagName("div");
+			let arrH = [];
+			
+			for(let i=0; i<oDiv.length; i++){
+				//图片距离顶部的距离 < 浏览器滚动条滚动的高度 + 浏览器窗口的高度
+				if(oDiv[i].offsetTop < document.documentElement.scrollTop + document.documentElement.clientHeight){
+                    this.loadImg(oDiv[i]);
+                }
+				if(arrH.length == n){
+					let index = this.finMin(arrH);
+					oDiv[i].style.top = arrH[index] + 10 + "px";
+					oDiv[i].style.left = index * 200 + index * 10 + "px";
+					arrH[index] += oDiv[i].offsetHeight + 10;
+				}else{
+					oDiv[i].style.top = 0;
+					oDiv[i].style.left = i * 200 + i * 10 + "px";
+					arrH[i] = oDiv[i].offsetHeight;
+				}
+			}
+		}
+		
+		finMin(arr){
+			let index = 0;
+			for(let i=0; i<arr.length; i++){
+				if(arr[index] > arr[i]){
+					index = i;
+				}
+			}
+			
+			return index;
+		}
+		
+		onscroll(){
+			let that = this;
+			window.onscroll = function(){
+				let top = document.documentElement.scrollTop || document.body.scrollTop;
+				if(top>400){
+					that.createDiv();
+				}
+			}
+		}
+		
+		loadImg(oDiv){
+            if(oDiv.src == null){
+                oDiv.style.background = oDiv.date_src;
+            }
+        }
+	}
+	
+	let wf = new WaterFall();
+	wf.createDiv();
+	wf.createDiv();
+	wf.onscroll();
+</script>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		姓名:<input type="text" id="t1" /><span id="s"></span></br>
+	</body>
+</html>
+<script>
+	let oName = document.querySelector("#t1");
+	let oSpan = document.querySelector("#s");
+	oName.onblur = function() {
+
+		let xhr;
+		if (window.ActiveXObject) {
+			//ie
+			xhr = new ActiveXObject("Microsoft.XMLHttp");
+		} else {
+			//非ie
+			xhr = new XMLHttpRequest();
+		}
+
+		xhr.open("post", "2ajaxPostLogin.php", true);
+		xhr.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+		
+		xhr.onreadystatechange = function() {
+			if (xhr.status == 200 && xhr.readyState == 4) {
+				//前后端分离
+				fun(xhr.responseText);
+			}
+		}
+
+		xhr.send("username="+oName.value);
+
+		function fun(str) {
+			if (str == 1) {
+				oSpan.innerHTML = "用户名已注册";
+			} else {
+				oSpan.innerHTML = "注册成功";
+			}
+
+
+		}
+	}
+</script>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script>
+	function Factory(role) {
+		function SuperAdmin() { //产品线
+			this.name = "超级管理员";
+			this.viewPage = ['首页', '通讯录', '发现页', '应用数据', '权限管理'];
+		}
+
+		function Admin() {
+			this.name = "管理员";
+			this.viewPage = ['首页', '通讯录', '发现页', '应用数据'];
+		}
+
+		function NormalUser() {
+			this.name = '普通用户';
+			this.viewPage = ['首页', '通讯录', '发现页'];
+		}
+		
+		switch(role){
+			case "SA":
+				return new SuperAdmin();
+				break;
+			case "A":
+				return new Admin();
+				break;
+			case "NU":
+				return new NormalUser();
+				break;
+		}
+	}
+	
+	let superAdmin = UserFactory('SA');
+    let admin = UserFactory('A');
+    let normalUser = UserFactory('NU');
+    console.log(superAdmin,admin,normalUser);
+</script>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script>
+// 	let x,y,z;
+// 	x=y=z=123;
+	//数组方式赋值
+	//let [x,y,z] = [1,2,3];
+	//console.log(x,y,z);
+	//对象
+// 	let {name,age} = {name:"鲍东升",age:18};
+// 	console.log(name,age);
+// 	function fun(){
+// 		return [1,2,3,4];
+// 	}
+// 	
+// 	console.log(fun());
+//	返回1~100能被3整除的数之和，以及这样的数有多少个。
+
+// 	function fun(){
+// 		let count = 0;
+// 		let sum = 0;
+// 		
+// 		for(let i=0; i<100; i++){
+// 			if(i%3==0){
+// 				sum += i;
+// 				count ++;
+// 			}
+// 		}
+// 		
+// 		return [sum,count];
+// 	}
+// 	
+// 	console.log(fun());
+
+	let a = 123;
+	let b = 456;
+	let c = 789;
+	let t;
+	
+// 	t = a;
+// 	a = b;
+// 	b = t;
+	
+// 	a = a + b;
+// 	b = a - b;//
+// 	a = a - b;//a+b-a
+
+	[a,b] = [b,a];
+	
+	console.log(a,b,c);
+</script>

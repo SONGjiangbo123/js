@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script>
+	//工厂模式
+	function AbstractFactory(){//生产5.8inch两毫米厚度钻石手机屏幕
+            return {
+                "thickness":"2mm",
+                "size":"5.8inch",
+                "material":"Diamonds"
+        }
+    }
+	function Iphone(){
+        this.shell="铝合金";
+        this.model="7Plus";
+        this.screen=AbstractFactory();
+    }
+</script>

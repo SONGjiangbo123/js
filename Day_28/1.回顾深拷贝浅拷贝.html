@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+	<body>
+
+	</body>
+</html>
+<script>
+	// 	class Student{
+	// 		constructor(newId) {
+	// 		    this.id = newId;
+	// 		}
+	// 		clone(){
+	// 			return new Student(this.id);
+	// 		}
+	// 	}
+	// 	
+	// 	let s1 = new Student(111);
+	// 	let s2 = s1.clone();
+	// 
+	// 	console.log(s2.id);
+	function Birthday(newY, newM, newD) {
+		this.y = newY;
+		this.m = newM;
+		this.d = newD;
+	}
+
+	function Animal(newBir) {
+		this.bir = newBir;
+	}
+
+	function Person() {
+
+	}
+
+	Person.prototype = new Animal(new Birthday(1, 2, 3));
+
+// 	Person.prototype.clone = function() {
+// 		//new 空间
+// 		let p = new Person();
+// 		p.bir = new Birthday(this.bir.y, this.bir.m, this.bir.d);
+// 		return p;
+// 	}
+	
+	let s1 = new Person();
+	s1.bir = new Birthday(1,1,1);
+	let s2 = new Person();
+	s2.bir = new Birthday(2,2,2);
+	
+	s2.bir.y = 666;
+	
+	console.log(s1.bir.y);
+	console.log(s2.bir.y);
+	
+</script>

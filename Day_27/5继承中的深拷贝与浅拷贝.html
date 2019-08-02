@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script>
+	function Birthday(newY,newM,newD){
+		this.y = newY;
+		this.m = newM;
+		this.d = newD;
+	}
+	
+	function Animal(newBir){
+		this.bir = newBir;
+	}
+	
+	function Person(){
+		
+	}
+	
+	Person.prototype = new Animal(new Birthday(1,2,3));
+	
+	Person.prototype.clone = function(){
+		//new 空间
+		let p = new Person();
+		p.bir = new Birthday(this.bir.y,this.bir.m,this.bir.d);
+		return p;
+	}
+	
+	let p1 = new Person();
+	let p2 = p1.clone();
+	p2.bir.y = 4;
+	p2.bir.m = 5;
+	p2.bir.d = 6;
+	console.log(p1.bir.y,p1.bir.m,p1.bir.d);
+</script>

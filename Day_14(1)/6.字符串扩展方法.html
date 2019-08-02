@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script>
+	//ES6字符串的查询
+	//let str = "hello lao wang";
+	//console.log(str.includes("hei"));
+	//console.log(str.startsWith(" hel"));
+	//console.log(str.endsWith("awng"));
+	
+	let str = "𡱖"; //2--->4byte
+	let str1 = "老";//1--->2byte
+	//console.log(str.charAt(0));//2byte
+	console.log(str.codePointAt(0)); 
+	//console.log("\u{21c56}"); //正确
+</script>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <input id="d1" type="text">
+    <button id="btn"onclick="filter()">替换</button>
+    <input id="d2" type="text">
+    <script>
+   function filter() {
+    var inputContent = $("#d1").value;
+    var arrMg = ["fuck", "tmd", "他妈的","操"];
+    var showContent = inputContent;
+    for (var i = 0; i < arrMg.length; i++) {
+        //数组下标使用不能加全局g  showContent = showContent.replace(/arrMg[i]/ig, "*");
+        var r = new RegExp(arrMg[i], "ig");
+        showContent = showContent.replace(r, "*");
+ }
+        $("#d2").value = showContent;
+}
+
+
+
+function $(str) {
+	if(str.charAt(0)=='#'){
+		return document.getElementById(str.substring(1));
+	}else if(str.charAt(0)=='.'){
+		return document.getElementsByClassName(str.substring(1));
+	}else{
+		return document.getElementsByTagName(str);
+	}
+}
+
+    
+    </script>
+</body>
+</html>

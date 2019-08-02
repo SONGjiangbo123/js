@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+    var ul1=document.createElement("ul");
+    var btn=document.createElement("button");
+        btn.innerText="添加";
+    var btn1=document.createElement("button");
+        btn1.innerText="删除"; 
+        var i=0;
+        btn.onclick=function(){
+            i++;
+            var li1=document.createElement("li");
+            li1.innerText='第'+i+'个';
+            ul1.appendChild(li1);
+
+        }
+        btn1.onclick=function(){
+            if(i>0){
+            i--;
+            ul1.lastChild.remove();}
+        }
+
+    document.body.appendChild(ul1);
+    document.body.appendChild(btn);
+    document.body.appendChild(btn1);
+
+    
+    </script>
+</body>
+</html>

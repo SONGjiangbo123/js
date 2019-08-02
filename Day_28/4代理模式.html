@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script>
+	class Mother{
+		constructor(newNurse) {
+		    this.nurse = newNurse;
+		}
+		takeBabyEat(){
+			console.log("Mother:发出消息");
+			this.nurse.takeBabyEat();
+		}
+	}
+	
+	class Nurse{
+		constructor() {
+		    
+		}
+		takeBabyEat(){
+			console.log("Nurse:takeBabyEat");
+		}
+	}
+	
+	let nurse = new Nurse();
+	let mother = new Mother(nurse);
+	
+	mother.takeBabyEat();
+</script>

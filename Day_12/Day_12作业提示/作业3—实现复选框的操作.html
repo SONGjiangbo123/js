@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>复选框</title>
+</head>
+<body>
+请选择你的爱好：<br>
+<input type="checkbox">全选/全不选<br>
+<input type="checkbox">看书
+<input type="checkbox">旅行
+<input type="checkbox">打游戏
+<input type="checkbox">敲代码
+<input type="checkbox">踢足球<br>
+<input type="button" value="全选">
+<input type="button" value="全不选">
+<input type="button" value="反选">
+</body>
+</html>
+<script>
+var checkbox=document.getElementsByTagName("input");
+checkbox[0].onchange=function(){
+	for(var i=1;i<=5;i++){
+		checkbox[i].checked=checkbox[0].checked;
+	}
+}
+checkbox[6].onclick=function(){
+	for(var i=1;i<=5;i++){
+		checkbox[i].checked="checked";
+	}
+}
+checkbox[7].onclick=function(){
+	for(var i=1;i<=5;i++){
+		checkbox[i].checked="";
+	}
+}
+checkbox[8].onclick=function(){
+	for(var i=1;i<=5;i++){
+		if(checkbox[i].checked){
+			checkbox[i].checked="";
+		}else if(checkbox[i].checked==""){
+			checkbox[i].checked="checked";
+		}
+	}
+}
+</script>

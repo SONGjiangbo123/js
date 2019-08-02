@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="text"/></br>
+		<button>刷新</button>
+	</body>
+</html>
+<script>
+	console.log(window.location.href); 
+	
+	//setTimeout(function(){
+		//location.href = "http://www.baidu.com";
+		//location.replace("http://www.baidu.com");
+	//},2000);
+	var btn = document.querySelector("button");
+	
+	btn.onclick = function(){
+		location.reload();
+	}
+</script>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<ul>
+            <li>1111</li>
+            <li>2222</li>
+            <li>3333</li>
+            <li>4444</li>
+            <li>5555</li>
+        </ul>
+	</body>
+</html>
+<script>
+// 	let list = document.getElementsByTagName("li");
+// 	
+// 	for(var i=0; i<list.length; i++){
+// 		(function(i){
+// 			list[i].onclick = function(){
+// 				console.log(i);
+// 			}
+// 		}(i));
+// 	}
+	
+	//mult(5)(6)(7)
+	function fun(i){
+		return function(j){
+			return function(k){
+				return i*j*k;
+			};
+		}
+	}
+	
+	console.log(fun(5)(6)(7));
+</script>

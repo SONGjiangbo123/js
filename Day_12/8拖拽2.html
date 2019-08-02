@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			#box{
+				width:100px;
+				height: 100px;
+				border: 1px solid red;
+				position: absolute;
+				cursor: move;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box">
+			
+		</div>
+	</body>
+</html>
+<script>
+	var oBox = document.querySelector("#box");
+	
+	oBox.onmousedown = function(evt){
+		var e = evt || event;
+		
+		var ofx = e.offsetX;
+		var ofy = e.offsetY;
+		
+		document.onmousemove = function(evt){
+			var e = evt || event;
+			
+			var left = e.pageX - ofx;
+			var top = e.pageY - ofy;
+			
+			//边界测试
+			if(left < 0){
+				left = 0;
+			}
+			var maxLeft = window.innerWidth - oBox.offsetWidth;
+			if(left>maxLeft){
+				left = maxLeft;
+			}
+			
+			if(top < 0){
+				top = 0;
+			}
+			var maxTop= window.innerHeight - oBox.offsetHeight;
+			if(top>maxTop){
+				top = maxTop;
+			}
+			oBox.style.left = left + "px";
+			oBox.style.top = top + "px";
+		}	
+		
+		document.onmouseup = function(){
+			document.onmousemove = null;
+		}
+	}
+	
+</script>

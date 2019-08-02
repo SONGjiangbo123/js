@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    *{
+        padding: 0;margin: 0;
+    }
+    #time{
+        width: 200px;
+        height: 200px;
+        margin: 100px 0;
+        text-align: center;
+        line-height: 100px;
+        background: #000;
+        color: red;
+        font-size: 40px;
+    }
+    #btn1{
+        position: absolute;
+        top: 100px;
+        left: 0;
+    }
+    #btn2{
+        position: absolute;
+        top: 100px;
+        left:170px;
+    }
+    </style>
+</head>
+<body>
+    <div id="time">
+        
+    </div>
+    <button id="btn1">停止</button>
+    <button id="btn2">消失</button>
+    <script>
+    var time=document.getElementById("time");
+    var btn=document.getElementById("btn");
+    var i=10;
+    var isclick= true;//清除定时器
+    time.innerHTML=i;
+
+  
+        if(isclick){
+        isclick= false;
+    var stop=setInterval(kaishi,1000);
+        function kaishi(){
+        i--;
+      time.innerHTML=i;
+      if(i<0){
+          clearInterval(stop);
+          btn1.style.display="none";
+        btn2.style.display="none";
+        time.style.display='none';
+      }
+    }
+
+}
+    btn1.onclick=function(){
+        clearInterval(stop);
+}
+
+// var isGo=0;  //开始停止的标志
+		
+// btn1.onclick = function(){
+//         isGo++;	
+//         console.log(isGo);
+// 	if(isGo/2==1) {
+//         clearInterval(stop);
+// 	} else {
+//         setInterval(kaishi,1000);
+// 	}
+			
+// 	isGo = !isGo;  //按钮冲突改变
+// };
+
+
+
+
+
+
+    btn2.onclick=function(){
+        btn1.style.display="none";
+        btn2.style.display="none";
+        time.style.display='none';
+    }
+
+    </script>
+</body>
+</html>

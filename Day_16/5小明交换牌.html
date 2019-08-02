@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script>
+	class Poker{
+		constructor(newColor,newNum) {
+		    this.color = newColor;
+			this.number = newNum;
+		}
+	}
+	class Hand{
+		constructor(newPoker) {
+		    this.poker = newPoker;
+		}
+	}
+	class Human{
+		constructor(newLeftHand,newRightHand) {
+		    this.leftHand = newLeftHand;
+			this.rightHand = newRightHand;
+		}
+		
+		showCards(){
+			console.log(this.leftHand.poker.color,this.leftHand.poker.number);
+			console.log(this.rightHand.poker.color,this.rightHand.poker.number);
+		}
+		
+		swap(){
+			let temp;
+			
+			temp = this.leftHand.poker;
+			this.leftHand.poker = this.rightHand.poker;
+			this.rightHand.poker = temp;
+		}
+	}
+	
+	let poker1 = new Poker("红桃","A");
+	let poker2 = new Poker("黑桃","K");
+	
+	let leftHand = new Hand(poker1);
+	let rightHand = new Hand(poker2);
+	
+	let xiaoming = new Human(leftHand,rightHand);
+	
+	xiaoming.showCards();
+	xiaoming.swap();
+	xiaoming.showCards();
+</script>

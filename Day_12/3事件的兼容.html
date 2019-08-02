@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script>
+// 	document.attachEvent("onclick",function(){
+// 		alert("document");
+// 	});
+
+	function addEvent(obj,evt,callBack){
+		if(obj.attachEvent){
+			obj.attachEvent("on"+evt,callBack);
+		}else{
+			obj.addEventListener(evt,callBack);
+		}
+	}
+	
+	addEvent(document,"click",function(){
+		alert("heihei");
+	});
+</script>

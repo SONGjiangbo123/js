@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script>
+	//方法1:直接将字符串转成日期
+	var str = "2018-5-5,18:23:56";
+	// var date = new Date(str);
+	//方法2:
+	//时间戳
+	var t = new Date(Date.parse(str));
+	console.log(t);
+</script>

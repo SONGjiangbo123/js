@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="text" /></br>
+		<button>测试</button>
+	</body>
+</html>
+<script>
+	//纯数字
+	var regNum = /^\d+$/;
+	//纯字母
+	var regLetter = /^[a-zA-Z]+$/;
+	//纯其他字符
+	var regChar = /^[!@#$%]+$/;
+	
+	//不纯的:包含
+	var _regNum = /\d+/;
+	var _regLetter = /[a-zA-Z]+/;
+	var _regChar = /[!@#$%]+/;
+	
+	var oText = document.querySelector("input");
+	var oBtn = document.querySelector("button");
+	
+	oBtn.onclick = function(){
+		var str = oText.value;
+		
+		if(regNum.test(str) == true || regLetter.test(str) == true|| regChar.test(str) == true){
+			console.log("密码弱");
+		}else if(_regNum.test(str) == true && _regLetter.test(str) == true && _regChar.test(str) == true){
+			console.log("密码强");
+		}else{
+			console.log("密码中");
+		}
+	}
+</script>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+	<body>
+		
+	</body>
+</html>
+<script>
+	//封装一个设置cookie值得方法
+	function setCookie(key,value,day){
+		let date = new Date();
+		date.setDate(date.getDate()+day);
+		document.cookie = key+"="+value+";expires="+date;
+	}
+	
+// 	setCookie("name","laowang",15);
+// 	setCookie("pwd","123456",15);
+	
+	//封装一个获取cookie值得方法
+	function getCookie(key){
+		let strCookie = document.cookie;
+		
+		let arrCookie = strCookie.split("; ");
+		
+		for(let i=0; i<arrCookie.length; i++){
+			let temp = arrCookie[i].split("=");
+			
+			if(temp[0] == key){
+				return temp[1];
+			}
+		}
+		return ;
+	}
+	
+	//删除cookie
+	function delCookie(key){
+		setCookie(key,'',-1);
+	}
+	
+	//console.log(getCookie("name"));
+	//console.log(getCookie("pwd"));
+	delCookie("name");
+</script>

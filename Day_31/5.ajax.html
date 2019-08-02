@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script src="jQuery.js"></script>
+<script>
+	$(function(){
+		$.ajax({
+			url:"test/3test.php",
+			data:{
+				"name":"laowang",
+				"pwd":666
+			},
+			type:'post',//HTTP请求类型
+			success:function(data){
+				console.log(data);
+			}
+		});
+	});
+</script>

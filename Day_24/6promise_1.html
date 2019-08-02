@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script>
+	//回调链  回调地狱
+// 	function fun1(f){
+// 		console.log("fun1");
+// 		f();
+// 	}
+// 
+// 	function fun2(f){
+// 		console.log("fun2");
+// 		f();
+// 	}
+// 	
+// 	function fun3(f){
+// 		console.log("fun3");
+// 		f();
+// 	}
+// 	
+// 	function fun4(){
+// 		console.log("fun4");
+// 	}
+	
+	//主从关系
+// 	fun1(function(){
+// 		fun2(function(){
+// 			fun3(fun4);
+// 		})
+// 	});
+	
+	//平级的顺序关系
+	//fun1().then(fun2).then(fun3).then(fun4);
+	
+	function fun1(){
+        console.log("fun1_同步");
+		let p = new Promise(function(resolve,reject){
+			setTimeout(function(){
+				console.log("fun1_异步");
+				resolve();
+			},1000);
+		});
+		return p;
+    }
+
+	function fun2(){
+        console.log("fun2_同步");
+		let p = new Promise(function(resolve,reject){
+			setTimeout(function(){
+				console.log("fun2_异步");
+				resolve();
+			},1000);
+		});
+		return p;
+    }
+	
+	function fun3(){
+        console.log("fun3_同步");
+		let p = new Promise(function(resolve,reject){
+			setTimeout(function(){
+				console.log("fun3_异步");
+				resolve();
+			},1000);
+		});
+		return p;
+    }
+	
+	function fun4(){
+        console.log("fun4_同步");
+		let p = new Promise(function(resolve,reject){
+			setTimeout(function(){
+				console.log("fun4_异步");
+				resolve();
+			},1000);
+		});
+		return p;
+    }
+	
+// 	fun1(function(){
+// 		fun2(function(){
+// 			fun3(fun4);
+// 		});
+// 	});
+
+	fun1().then(fun2).then(fun3).then(fun4);
+</script>

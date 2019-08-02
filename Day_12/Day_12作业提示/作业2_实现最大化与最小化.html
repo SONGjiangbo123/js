@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>拖拽，实现最大化与最小化</title>
+</head>
+<style>
+	*{
+		margin:0;
+		padding: 0;
+	}
+	#box{
+		width:200px;
+		height:200px;
+		background: red;
+		cursor:move;
+		position:absolute;
+	}
+	/*#btn{
+		position:absolute;
+		width:50px;
+		height:30px;
+		left:0;
+		top:0;
+		right:0;
+		bottom:0;
+		margin:auto;
+	}*/
+</style>
+<body>
+	<div id="box">
+		<button id="btn">缩小</button>
+	</div>
+</body>
+</html>
+<script>
+var box=document.getElementById("box");
+box.addEventListener("mousedown",function(evt){
+	var e=evt||event;
+	var ofX=e.offsetX;
+	var ofY=e.offsetY;
+	function move(evt){
+		var e=evt||event;
+		var x=e.pageX-ofX;
+		var y=e.pageY-ofY;
+		if(x<0){
+			x=0;
+		}
+		if(y<0){
+			y=0;
+		}
+		var maxLeft=window.innerWidth-box.offsetWidth;
+		var maxTop=window.innerHeight-box.offsetHeight;
+		if(x>maxLeft){
+			x=maxLeft;
+		}
+		if(y>maxTop){
+			y=maxTop;
+		}
+		box.style.left=x+"px";
+		box.style.top=y+"px";
+	}
+	document.addEventListener("mousemove",move);
+	document.addEventListener("mouseup",function(){
+		document.removeEventListener("mousemove",move);
+	});
+});
+box.ondblclick=function(){
+	box.style.left=0;
+	box.style.top=0;
+	box.style.width=window.innerWidth+"px";
+	box.style.height=window.innerHeight+"px";
+}
+btn.onclick=function(){
+	box.style.width=200+"px";
+	box.style.height=200+"px";
+}
+</script>

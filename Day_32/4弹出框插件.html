@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			#box{
+                width: 350px;
+                height: 400px;
+                background: skyblue;
+                position:absolute;
+                display: none;
+            }
+		</style>
+	</head>
+	<body>
+		<button>开始</button>
+        <div id="box">
+
+
+        </div>
+	</body>
+</html>
+<script src="jQuery.js"></script>
+<script>
+	$(function(){
+		$.fn.extend({
+				popPlugin:function () {
+					
+				let box = $(this)[0];
+			    let btnDiv = null;
+				
+				function setPosition(){
+					//要想获取offsetWidth display必须设置为block
+					box.style.display = "block";
+					box.style.left = window.innerWidth/2 - box.offsetWidth/2 + "px";
+					box.style.top = window.innerHeight/2 - box.offsetHeight/2+ "px";	
+					createBtn();
+				}
+				
+				function createBtn(){
+					btnDiv = document.createElement("button");
+					//记得加定位
+					btnDiv.style.position = "absolute";
+					btnDiv.style.width = 50 + "px";
+					btnDiv.style.height = 25 + "px";
+					btnDiv.innerHTML = "关闭";
+					//必须先有元素才有offsetWidth 这些东西
+					box.appendChild(btnDiv);
+					btnDiv.style.left = box.offsetWidth - btnDiv.offsetWidth + "px";
+					closeBox();
+				}
+				
+				function closeBox(){
+					btnDiv.onclick = function(){
+						box.style.display = "none";
+					}
+				}
+				setPosition();
+			}
+		});
+		
+		$("#box").popPlugin();
+	});
+</script>

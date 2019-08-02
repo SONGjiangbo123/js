@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="text" /></br>
+		<ul>
+			
+		</ul>
+	</body>
+</html>
+<script>
+	let oText = document.querySelector("input");
+	let oUl = document.querySelector("ul");
+	
+	oText.oninput = function(){
+		let xhr = new XMLHttpRequest();
+		
+		xhr.open("get","3baiduQuery.php?wd="+oText.value,true);
+		
+		xhr.onreadystatechange = function(){
+			if(xhr.status == 200 && xhr.readyState == 4){
+				fun(xhr.responseText);
+			}
+		}
+		
+		xhr.send();
+		
+		function fun(str){
+			let myJSon = JSON.parse(str);
+			let htmlStr = "";
+			for(let index in myJSon){
+				htmlStr += "<li>" + myJSon[index] + "</li>";
+			}
+			oUl.innerHTML = htmlStr;
+		}
+	}
+	
+	
+</script>

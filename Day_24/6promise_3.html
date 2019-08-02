@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script>
+		function myAjax(type,url,isAsyn,data){
+		
+		let xhr;
+	    if (window.ActiveXObject) {
+	        //ie
+	        xhr = new ActiveXObject("Microsoft.XMLHttp");
+	    } else {
+	        //非ie
+	        xhr =  new XMLHttpRequest();
+	    }
+		
+		type = type.toLowerCase();
+		
+		if(type == "get"){
+			let urlParam = url;
+			if(data != ""){
+				urlParam += "?" + data;
+			}
+			xhr.open(type,urlParam,isAsyn);
+			xhr.send();
+		}else{
+			xhr.open(type,url,isAsyn);
+			xhr.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+			xhr.send(data);
+		}
+		
+		let p = new Promise(function(resolve,reject){
+			xhr.onreadystatechange = function(){
+				if(xhr.readyState == 4){
+					if(xhr.status == 200){
+						resolve(xhr.responseText);
+					}else{
+						reject(xhr.responseText);
+					}
+				}
+			}
+		});
+		
+		return p;
+	}
+	
+	myAjax("get","5myAjax.php",true,"name=laowang&pwd=123").then(fun1,fun2);
+	
+	function fun1(str){
+		console.log("成功"+str);
+	}
+	function fun2(str){
+		console.log("失败"+str);
+	}
+</script>

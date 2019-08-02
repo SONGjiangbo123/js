@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script>
+	// 	let singletion = {
+	// 		age:18,
+	// 		fun:function(){
+	// 			console.log(this.age);
+	// 		}
+	// 	}
+	// 	
+	// 	let s1 = singletion;
+	// 	let s2 = singletion;
+	// 	
+	// 	console.log(s1 === s2);
+
+	// 	function King(newName,newAge){
+	// 		if(King.unique == undefined){
+	// 			this.name = newName;
+	// 			this.age = newAge;
+	// 			King.unique = this;
+	// 		}else{
+	// 			return King.unique;
+	// 		}
+	// 	}
+	// 	
+	// 	let k1 = new King("秦始皇",2000);
+	// 	let k2 = new King("王昊元",25);
+	// 	
+	// 	console.log(k1 === k2);
+
+
+	let singletion = (function(newName,newAge) {
+		var unique;
+		function King(newName, newAge) {
+			this.name = newName;
+			this.age = newAge;
+		}
+		if (unique == undefined) {
+			unique = new King(newName, newAge);
+		}
+		return function(){
+			return unique;
+		}
+	})("秦始皇",2000);
+	
+	let s1 = singletion();
+	let s2 = singletion();
+	
+	console.log(s1 === s2);
+</script>
+	

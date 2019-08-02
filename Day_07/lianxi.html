@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 查找出现次数 -->
+    <div>
+        <input id="input_a" type="text" placeholder="请输入内容">
+    </div>
+    <div>
+        <input id="input_b" type="text" placeholder="查找的内容">
+    </div>
+    <button id="btn">查找</button>
+    <input  id="input_c" type="text">
+    <script>
+        $("#input_a").onmouseenter=function(){
+            $("#input_b").value='';
+            $("#input_a").value='';
+        }
+        $("#btn").onclick=function(){
+            console.log(typeof($("#input_a").value));
+            var x=$("#input_a").value;
+            var y=$("#input_b").value;
+            
+        }
+    
+    
+    
+    </script>
+</body>
+</html>

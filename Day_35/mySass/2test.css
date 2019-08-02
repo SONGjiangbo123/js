@@ -1,0 +1,43 @@
+#box6 {
+  width: 100px;
+  height: 200px;
+  background: green; }
+
+#box7 {
+  width: 100px;
+  height: 100px;
+  background: green; }
+
+.item-1 {
+  width: 2em; }
+
+.item-2 {
+  width: 4em; }
+
+.item-3 {
+  width: 6em; }
+
+.item-1 {
+  width: 2em; }
+
+.item-2 {
+  width: 4em; }
+
+.item-3 {
+  width: 6em; }
+
+.item-2 {
+  width: 4em; }
+
+.item-1 {
+  width: 2em; }
+
+#opacity {
+  opacity: 0.5;
+  filter: alpha(opacity=50); }
+
+#opacity-80 {
+  opacity: 0.8;
+  filter: alpha(opacity=80); }
+
+/*# sourceMappingURL=2test.css.map */

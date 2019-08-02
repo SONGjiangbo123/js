@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script>
+	document.addEventListener("click",function(){
+		alert("document冒泡");
+	},false);
+	window.addEventListener("click",function(){
+		alert("window冒泡");
+	},false);
+	document.addEventListener("click",function(){
+		alert("document捕获");
+	},true);
+	window.addEventListener("click",function(){
+		alert("window捕获");
+	},true);
+</script>

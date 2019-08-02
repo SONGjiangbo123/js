@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+	<body>
+		<div id="box1" class="box">
+            1
+        </div>
+        <div id="box2" class="box">
+            2
+        </div>
+        <div id="box3" class="box">
+            3
+        </div>
+        <div id="box4" class="box">
+            4<p>
+                <div id="box5" class="box">5</div>
+            </p>
+        </div>
+	</body>
+</html>
+<script src="jQuery.js"></script>
+<script>
+	$(function(){
+		//1.后代选择器
+		//$("body div").css({backgroundColor:"red"});
+		//2.子选择器
+		//$("body>div").css({backgroundColor:"red"});
+		//3.相邻选择器
+		//$("#box2+div").css({backgroundColor:"red"});
+		//4.兄弟选择器
+		//$("#box2~div").css({background:"yellow"});
+	});
+</script>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="box0">
+            0
+		   <p>00</p>
+           <div id="">
+    
+           </div>
+        </div>
+        <div id="box1">
+            1
+            <p>11</p>
+        </div>
+        <div id="box2">
+            2
+            <p>22</p>
+        </div>
+        <div id="box3">
+            3
+            <p>33</p>
+        </div>
+        <div id="box4">
+            4
+            <p>44</p>
+        </div>
+	</body>
+</html>
+<script src="jQuery.js"></script>
+<script>
+	$(function(){
+		//next下一个元素
+		//$("#box2").next().css({background:"red"});
+		//nextAll下面所有元素
+		//$("#box2").nextAll().css({background:"red"});
+		
+		//prev上一个元素
+		//$("#box2").prev().css({background:"red"});
+		//prevAll上一个元素
+		//$("#box2").prevAll().css({background:"red"});
+		
+		//该方法必须传参
+		//Dom元素的遍历
+		//find("参数") 寻找body下的所有div  后代遍历的方法
+		//$("body").find("div").css({background:"red"});
+		
+		//children body的div会被影响
+		//$("body").children("div").css({background:"yellow"});
+		//children 不传参时默认传递通配符
+        //$("body").children().css({background:"yellow"});
+		
+		//parent找父元素  连缀模式
+		//$("p").eq(2).parent().css({background:"yellow"});
+	});
+</script>

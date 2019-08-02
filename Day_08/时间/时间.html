@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        div{
+            margin: 100px auto;
+            width: 400px;
+            height: 100px;
+            display: flex;
+            
+        }
+        span{
+            width: 20px;
+            height: 100px;
+            display:block;
+            text-align: center;
+            justify-content: center;
+            line-height: 100px;
+            font-size: 30px;
+            color: rgb(30, 190, 78);
+        }
+        img{
+            width: 50px;
+            height: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <img id="imgHoursShi" >
+        <img id="imgHoursGe" >
+        <span>:</span>
+		<img id="imgMinutesShi">
+        <img id="imgMinutesGe">
+        <span>:</span>
+		<img id="imgSecondsShi">
+		<img id="imgSecondsGe">
+    </div>
+    <script>
+    function times(){
+        var d = new Date();
+        // 时
+        var hours = d.getHours();//
+        var hoursShi = parseInt(hours/10);
+        var hoursGe = hours%10;
+        $("imgHoursShi").src='img/'+hoursShi+".png";
+        $("imgHoursGe").src='img/'+hoursGe+".png";
+        // 分
+        var Minutes = d.getMinutes();//
+        var MinutesShi = parseInt( Minutes/10);
+        var MinutesGe =  Minutes%10;
+        $("imgMinutesShi").src='img/'+MinutesShi+".png";
+        $("imgMinutesGe").src='img/'+MinutesGe+".png";
+         // 秒
+        var Seconds= d.getSeconds();//
+        var SecondsShi = parseInt(Seconds/10);
+        var SecondsGe = Seconds%10;
+        $("imgSecondsShi").src='img/'+SecondsShi+".png";
+        $("imgSecondsGe").src='img/'+SecondsGe+".png";
+    }
+        times();
+        setInterval(times, 1000);
+
+
+    function $(id){
+        return document.getElementById(id);
+    }
+    </script>
+</body>
+</html>

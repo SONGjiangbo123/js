@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style>
+			#box{
+				height: 100px;
+				width: 100px;
+				background: red;
+				position: absolute;
+				top:200px;
+			}
+		</style>
+	</head>
+	<body>
+		<button onclick="startMove()">起飞</button>
+		<div id="box"></div>
+	</body>
+</html>
+<script>
+	let btn = document.querySelector("button");
+	let box = document.querySelector("#box");
+	let time = null;
+	
+	function startMove(){
+		clearInterval(time);
+		time = setInterval(function(){
+			box.style.left = box.offsetLeft + 20 + "px";
+			if(box.offsetLeft >= 300){
+				box.style.left  = 300 + "px";
+				clearInterval(time);
+			}
+		},50); 
+	}
+</script>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script>
+	//循环定时器
+	//setInterval(回调函数,时间间隔);
+//	var count = 0;
+	
+	//通过该对象,关闭定时器
+// 	var time = setInterval(function(){
+// 		console.log(count++);
+// 		if(count == 5){
+// 			clearInterval(time);
+// 		}
+// 	},1000);
+	
+	//关闭定时器
+//	clearInterval(time);
+// 	function fun(){
+// 		console.log(count++);
+// 	}
+// 	
+// 	setInterval("fun()",1000);
+
+	var time = setTimeout(function(){
+		console.log("heihei");
+	},3000);
+	
+	clearTimeout(time);
+</script>

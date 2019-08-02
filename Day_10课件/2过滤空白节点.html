@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<ul id = "list">
+            <li>11</li>
+            <li>22</li>
+            <li>33</li>
+        </ul>
+	</body>
+</html>
+<script>
+	var e = document.getElementById("list");
+    var a = e.childNodes;
+	
+	for(var i=0; i<a.length; i++){
+		if(a[i].nodeType == 3){
+			a[i].remove();
+		}
+	}
+	
+	for(var i=0; i<a.length; i++){
+		console.log(a[i].innerHTML);
+	}
+
+</script>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    div{
+        width: 100px;
+        height: 100px;
+
+        /* background: #000; */
+        position: absolute;
+        /* display: none; */
+    }
+    ul,li{
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+    ul{
+        width: 100px;height: 120px;
+    }
+    li{
+        width: 100px;height: 40px; 
+        text-align: center;
+        line-height: 40px; 
+    }
+    </style>
+</head>
+<body>
+    <ul>
+        <li>情人快乐</li>
+        <li>端午节快乐</li>
+        <li>六一快乐</li>
+    </ul>
+    <div>
+
+    </div>
+    <script>
+    var arr=["qingrenjiekuaile","端午节快乐","六一快乐"];
+    var oli=document.getElementsByTagName("li"),
+        odiv=document.getElementsByTagName("div"),
+        oul=document.getElementsByTagName("ul");
+    for(var i=0;i<arr.length;i++){
+        oli[i].index=i;
+        oli[i].onmouseenter=function(evt){
+         
+  
+            odiv[0].innerHTML=arr[this.index];
+            odiv[0].style.display="block";
+        
+        }
+        oli[i].onmousemove=function(evt){
+                let e = evt || event;
+                odiv[0].style.left=e.pageX+"px";
+                odiv[0].style.top=e.pageY+"px";
+     
+     }
+    }
+     oul.onmouseleave=function(){
+         
+         odiv[0].style.display="none"; 
+            }
+    </script>
+</body>
+</html>

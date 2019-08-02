@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<img src = "http://10.35.167.207/5.jpg" />
+	</body>
+</html>
+<script>
+		//type:
+	//url:
+	//isAsyn:
+	//data:
+	//callBack:
+	function myAjax(type,url,isAsyn,data,callBack){
+		
+		let xhr;
+	    if (window.ActiveXObject) {
+	        //ie
+	        xhr = new ActiveXObject("Microsoft.XMLHttp");
+	    } else {
+	        //非ie
+	        xhr =  new XMLHttpRequest();
+	    }
+		
+		type = type.toLowerCase();
+		
+		if(type == "get"){
+			let urlParam = url;
+			if(data != ""){
+				urlParam += "?" + data;
+			}
+			xhr.open(type,urlParam,isAsyn);
+			xhr.send();
+		}else{
+			xhr.open(type,url,isAsyn);
+			xhr.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+			xhr.send(data);
+		}
+		
+		xhr.onreadystatechange = function(){
+			if(xhr.readyState == 4 && xhr.status == 200){
+				callBack(xhr.responseText);
+			}
+		}
+	}
+	
+	function fun(str){
+		console.log(str);
+	}
+	
+	//myAjax("get","http://10.35.167.24/hello.php",true,"",fun);
+	function test(str){
+		console.log(str);
+	}
+</script>
+<script src="7text.txt"></script>
+<script src="7php.php"></script>
+<script src="http://10.35.167.24/06.20xujiale/hello.php"></script>
+test(9999);

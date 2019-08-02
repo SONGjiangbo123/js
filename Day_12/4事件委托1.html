@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<ul>
+			<li>0</li>
+			<li>1</li>
+			<li>2</li>
+			<li>3</li>
+			<li>4</li>
+		</ul>
+	</body>
+</html>
+<script src="事件兼容插件.js" type="text/javascript" charset="utf-8"></script>
+<script>
+//	var oLi = document.getElementsByTagName("li");
+// 	for(var i=0; i<oLi.length; i++){
+// 		// oLi[i].index = i;
+// 		oLi[i].onclick = function(){
+// 			//oLi[this.index].style.background = "red";
+// 			this.style.background = "red";
+// 		}
+// 	}
+	
+	var oUl = document.querySelector("ul");
+	
+// 	oUl.onclick = function(evt){
+// 		var e = evt || event;
+// 		//事件源:是用户真正操作的对象
+// 		var target = e.target || e.srcElement;
+// 		
+// 		if(target.tagName == "LI"){
+// 			target.style.background = "red";
+// 		}
+// 		//在事件委托机制中,不能使用this
+// 		//this.style.background = "red";
+// 	}
+
+	addEvent(oUl,"click",function(evt){
+		var e = evt || event;
+		//事件源:是用户真正操作的对象
+		var target = e.target || e.srcElement;
+		
+		if(target.tagName == "LI"){
+			target.style.background = "red";
+		}
+		//在事件委托机制中,不能使用this
+		//this.style.background = "red";
+	});
+</script>

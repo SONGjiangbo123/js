@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			#box{
+				height: 50px;
+				width: 50px;
+				background: red;
+				border-radius: 50%;
+				position: absolute;
+				top:200px;
+			}
+		</style>
+	</head>
+	<body>
+		<button onclick="startMove()">点击</button>
+		<div id="box">
+			
+		</div>
+	</body>
+</html>
+<script>
+	let box = document.querySelector("#box");
+	let btn = document.querySelector("button");
+	let time = null;
+	function startMove(){
+		let speedX = 5;
+		let speedY = 5;
+		time = setInterval(function(){
+			box.style.left = box.offsetLeft + speedX + "px";
+			box.style.top = box.offsetTop + speedY + "px";
+			if(box.offsetLeft < 0){
+				speedX *= -1;
+			}
+			let maxX = window.innerWidth - box.offsetWidth;
+			if(box.offsetLeft > maxX){
+				speedX *= -1;
+			}
+			
+			if(box.offsetTop < 0){
+				speedY *= -1;
+			}
+			let maxY = window.innerHeight - box.offsetHeight;
+			if(box.offsetTop > maxY){
+				speedY *= -1;
+			}
+		},50);
+	}
+</script>

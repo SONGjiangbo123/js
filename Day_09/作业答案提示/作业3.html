@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>按钮的动态交互</title>
+	<style type="text/css">
+		img{
+			width:200px;
+			height:200px;
+		}
+	</style>
+</head>
+<body>
+	<p id="pDom">
+		星球<input type="radio" name="select">
+		长城<input type="radio" name="select">
+		美女<input type="radio" name="select">
+	</p>
+	<div id="content">
+		<img  id="pic"  alt="">
+		<p id="p2"></p>
+	</div>
+</body>
+</html>
+<script>
+window.onload=function(){
+	var rad=document.getElementsByName("select");
+	var pic=document.getElementById("pic");
+	rad[0].onclick=function(){
+		if(rad[0].checked){
+		pic.setAttribute("src","img/star.jpg");
+		document.getElementById("p2").innerHTML="美妙的星球，浩瀚的星空";
+		}
+	}
+	rad[1].onclick=function(){
+		if(rad[1].checked){
+		pic.setAttribute("src","img/great_wall.jpg");
+		document.getElementById("p2").innerHTML="万里长城，世界的奇迹";
+		}
+	}
+	rad[2].onclick=function(){
+		if(rad[2].checked){
+		pic.setAttribute("src","img/beauty.jpg");
+		document.getElementById("p2").innerHTML="清纯可爱的美女小姐姐";
+		}
+	}
+}
+</script>

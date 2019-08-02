@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title>无标题文档</title>
+		<style type="text/css">
+			#img1{filter:alpha(opacity:30); opacity:0.3;}
+		</style>
+		<script type="text/javascript">
+			
+			function getStyle(obj, attr) {
+				if(obj.currentStyle) {
+					getStyle = function(obj, attr){
+						return obj.currentStyle[attr];
+					}
+					return obj.currentStyle[attr];
+				} else {
+					getStyle = function(obj, attr){
+						return getComputedStyle(obj,null)[attr];
+					}
+					return getComputedStyle(obj,null)[attr];
+				}
+			}
+			window.onload = function(){
+				var img = document.getElementById("img1");
+				img.onmouseover = function(){
+					clearInterval(img.timer);
+					img.timer = setInterval(function(){
+						var op = Number(getStyle(img, "opacity")*100);
+						if(op >= 100){
+							clearInterval(img.timer);
+							return;
+						}
+						//alert(op + 0.02);
+						img.style.opacity = (op + 2)/100;
+						img.style.filter = "alpha(opacity="+op+")";
+					},30);
+				}
+				
+				img.onmouseout = function(){
+					clearInterval(img.timer);
+					img.timer = setInterval(function(){
+						var op = Number(getStyle(img, "opacity")*100);
+						if(op <= 30){
+							clearInterval(img.timer);
+							return;
+						}
+						//alert(op + 0.02);
+						img.style.opacity = (op - 2)/100;
+						img.style.filter = "alpha(opacity="+op+")";
+					},30);
+				}
+			}
+			
+			
+			
+		</script>
+
+	</head>
+
+	<body>
+		<img src="images/2.jpg" id="img1" width=500/>
+	</body>
+
+</html>

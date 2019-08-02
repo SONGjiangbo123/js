@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>选项卡</title>
+		<style type="text/css">
+			*{margin: 0; padding: 0; font-family: "微软雅黑";font-size: 14px;}
+			#container{
+				width: 398px; 
+				margin: 100px auto;}
+			#container a{
+				display:block ;
+				width: 98px; 
+				height: 42px; 
+				line-height: 42px; 
+				text-align: center; 
+				float: left;
+				border-top: solid 1px #FF4400;
+				border-bottom: solid 1px #FF4400;
+				border-left: solid 1px #FF4400;
+				color: #333333;
+				text-decoration: none;
+			}
+			#container a:hover{
+				color: #FF4400;
+			}
+			.content{
+				width: 355px;
+				height: 140px;
+				text-align: center;
+				border-right: solid 1px #FF4400;
+				border-bottom: solid 1px #FF4400;
+				border-left: solid 1px #FF4400;
+				padding: 30px 0 0 40px;
+				display: none;
+			}
+			.clear{clear: left;}
+			#container a.on{ background: #FF4400; color: #fff;}
+		</style>
+	
+	</head>
+	<body>
+		<div id="container">
+			<a href="#"  class="on">充话费</a>
+			<a href="#" >充流量</a>
+			<a href="#" >充固话</a>
+			<a href="#" style="border-right: solid 1px #FF4400;">充宽带</a>
+
+			<div class="clear"></div>
+			
+			<div class="content" style="display:block;">
+				<img src="images/1.png" />
+			</div>
+			<div class="content">
+				<img src="images/2.png" />
+			</div>
+			<div class="content">
+				<img src="images/3.png" />
+			</div>
+
+			<div class="content">
+				<img src="images/4.png" />
+			</div>
+		</div>
+	</body>
+</html>
+<script type="text/javascript">
+	//找到四个标题
+	var bts = document.getElementsByTagName("a");//四个 [标题一,]
+	var divs = document.getElementsByClassName("content");//四个 [内容一，]
+	//对象可以动态的添加属性  属性作用记录对象在页面中的位置（下标）
+	//for循环为所有的标题添加同一个鼠标事件
+	for( var i = 0 ; i < bts.length ; i++ ){
+		bts[i].index = i; //为每一个标题对象记录 下标
+		bts[i].onclick = function(){
+			//排他思想   先将所有的标题样式 清空  
+			for( var j = 0 ; j < bts.length ; j++ ){
+				bts[j].className = "";
+				divs[j].style.display = "none";
+			}
+			//操作当前的标题时，为该标题添加样式 on 
+			this.className = "on"; //留下当前操作 
+			divs[this.index].style.display = "block";
+		}
+	}
+</script>

@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>鼠标移动轨迹</title>
+	<style>
+		#box{
+			height:120px;
+			width:120px;
+			background: violet;
+			position: absolute;
+		}
+	</style>
+</head>
+<body>
+	<div id="box">
+		
+	</div>
+</body>
+</html>
+<script>
+	var box=document.getElementById("box");
+	document.onmousemove=function(evt){
+		var e=evt||event;
+		var x=e.pageX;
+		var y=e.pageY;
+		var maxLeft=window.innerWidth-box.offsetWidth;
+		var maxTop=window.innerHeight-box.offsetHeight;
+		if(x>maxLeft){
+			x=maxLeft;
+		}
+		if(y>maxTop){
+			y=maxTop;
+		}
+		box.innerHTML="X:"+x+"Y:"+y;
+		box.style.left=x+"px";
+		box.style.top=y+"px"
+	}
+</script>

@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>动态创建表格</title>
+<style>
+	td{
+		width:100px;
+		height:20px;
+		border:1px solid black;
+	}
+	table{
+		border-collapse: collapse;
+	}
+</style>
+</head>
+<body>
+	<table id="tb">
+		<tr>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+	</table>
+	<input type="button" id="btn" value="创建表格">
+</body>
+</html>
+<script>
+window.onload=function(){
+	var btn=document.getElementById("btn");
+	btn.onclick=function(){ 
+		var tb=document.getElementById("tb");
+		var tr1=document.createElement("tr");
+		console.log(td1);
+		for(var i=0;i<5;i++){
+			var td1=document.createElement("td");
+			// console.log(td1);
+			tr1.appendChild(td1);
+			// console.log(td1);
+		}
+		tb.childNodes[1].appendChild(tr1);
+		console.log(tr1.childNodes);
+	}
+}
+</script>

@@ -1,0 +1,62 @@
+@charset "utf-8";
+//函数
+$fontSize: 10px;
+@function pxTorem($px) {
+    @return $px * $fontSize;
+}
+
+#box6{
+    width: pxTorem(10);
+    height: pxTorem(20);
+    background: green;
+}
+
+$type: monster;
+#box7 {
+    width: 100px;
+    height: 100px;
+    @if $type == ocean {
+        background: blue;
+    } @else if $type == matador {
+        background: red;
+    } @else if $type == monster {
+        background: green;
+    } @else {
+        background: black;
+    }
+}
+
+// sass样式
+@for $i from 1 to 4 {
+    .item-#{$i} {width: 2em * $i;}
+}
+// css编译后样式
+.item-1 {
+    width: 2em;
+}
+.item-2 {
+    width: 4em;
+}
+.item-3 {
+    width: 6em;
+}
+
+$i: 2;
+@while $i > 0 {
+    .item-#{$i} {width: 2em * $i;}
+    $i: $i - 1;
+}
+
+
+@mixin opacity($opacity:50) {
+  opacity: $opacity / 100;
+  filter: alpha(opacity=$opacity);
+}
+
+#opacity{
+  @include opacity;      //参数使用默认值  50/100 = 0.5
+}
+
+#opacity-80{
+  @include opacity(80); //传递参数  80/100 = 0.8
+}

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script>
+	//ES6几乎和Java相同
+	class Animal{
+		constructor(newName,newId) {
+		    this.name = newName;
+			this.id = newId;
+		}
+		
+		eat(){
+			console.log("eat");
+		}
+	}
+	
+	//class 子类名 extends父类名
+	class Person extends Animal{
+		constructor(newName,newId,newScore){
+			//super其父类对象,通过super可直接调用其父类的构造方法
+			super(newName,newId);
+			this.score = newScore;
+		}
+		
+		study(){
+			console.log("study");
+		}
+	}
+	
+	let p = new Person("小明","9527",98);
+	
+	console.log(p.name,p.id,p.score);
+	
+	p.eat();
+	p.study();
+</script>

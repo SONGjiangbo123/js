@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style>
+            table{
+                width:50%;
+                position:relative;
+                margin:30px auto;
+                border-collapse: collapse;
+                border:1px solid gray;
+            }
+            th{
+                background: yellow;
+                height:2.5em;
+                margin: 0 auto;
+            }
+            tr{
+                height:2.5em;
+                margin: 0 auto;
+                text-align: center;
+            }
+        </style>
+	</head>
+	<body>
+		<table border="">
+			<tr>
+				<th>商品名称</th>
+				<th>数量</th>
+				<th>单价</th>
+				<th>小计</th>
+				<th>操作</th>
+			</tr>
+			<tr>
+				<td>烧煎饼</td>
+				<td>
+					<button>-</button>
+					<span class="goods-num">0</span>
+					<button>+</button>
+				</td>
+				<td>
+					单价:<span class="goods-price">2</span>
+				</td>
+				<td>
+					小计:<span class="goods-single-price">0</span>
+				</td>
+				<td>
+					操作:<input type="button" value="删除">
+				</td>
+			</tr>
+			<tr>
+				<td>水煮鱼</td>
+				<td>
+					<button>-</button>
+					<span class="goods-num">0</span>
+					<button>+</button>
+				</td>
+				<td>
+					单价:<span class="goods-price">20</span>
+				</td>
+				<td>
+					小计:<span class="goods-single-price">0</span>
+				</td>
+				<td>
+					操作:<input type="button" value="删除">
+				</td>
+			</tr>
+			<tr>
+				<td colspan="5">一共<span id="goods-total-num">0</span>件商品,共计花费<span id="goods-total-price">0</span>元。</td>
+			</tr>
+		</table>
+	</body>
+</html>
+<script>
+	class Cart{
+		constructor() {
+		    
+		}
+		//总共购物车有多少个商品
+		getGoodsNumAndUpdate(){
+			let oGoodsNum = document.getElementsByClassName("goods-num");
+			let goodsNum = 0;
+			for(let i=0; i<oGoodsNum.length; i++){
+				 goodsNum += Number(oGoodsNum[i].innerHTML);
+			}
+			let oGoodsTotalNum = document.getElementById("goods-total-num");
+			oGoodsTotalNum.innerHTML = goodsNum;
+		}
+		
+		//总共花费的价格
+		getGoodsPriceAndUpdate(){
+			let oGoodsPrice = document.getElementsByClassName("goods-single-price");
+			let goodsPrice = 0;
+			for(let i=0; i<oGoodsPrice.length; i++){
+				goodsPrice += Number(oGoodsPrice[i].innerHTML);
+			}
+			let oGoodTotalPrice = document.getElementById("goods-total-price");
+			oGoodTotalPrice.innerHTML = goodsPrice;
+		}
+		
+		//获得每个商品的小计
+		getGoodsSinglePrice(num,price){
+			return num*price;
+		}
+		
+		//添加货物
+		goodsPlus(btn){
+			//获取上一个兄弟元素
+			let oGoodsNum = btn.previousElementSibling;
+			oGoodsNum.innerHTML = Number(oGoodsNum.innerHTML)+1;
+			//更改当前商品小计
+			let oGoodsSinglePrice = btn.parentNode.nextElementSibling.nextElementSibling.firstElementChild;
+			//获取商品单价
+			let oGoodsPrice = btn.parentNode.nextElementSibling.firstElementChild;
+			oGoodsSinglePrice.innerHTML = this.getGoodsSinglePrice(oGoodsNum.innerHTML,oGoodsPrice.innerHTML);
+			this.getGoodsNumAndUpdate();
+			this.getGoodsPriceAndUpdate();
+		}
+		
+		//减少货物
+		goodsMin(btn){
+			//获取下一个兄弟元素
+			let oGoodsNum = btn.nextElementSibling;
+			
+			if(oGoodsNum.innerHTML>0){
+				oGoodsNum.innerHTML = Number(oGoodsNum.innerHTML)-1;
+				//更改当前商品小计
+				let oGoodsSinglePrice = btn.parentNode.nextElementSibling.nextElementSibling.firstElementChild;
+				//获取商品单价
+				let oGoodsPrice = btn.parentNode.nextElementSibling.firstElementChild;
+				oGoodsSinglePrice.innerHTML = this.getGoodsSinglePrice(oGoodsNum.innerHTML,oGoodsPrice.innerHTML);
+				this.getGoodsNumAndUpdate();
+				this.getGoodsPriceAndUpdate();
+			}
+		}
+		
+		delGoods(btn){
+			let delTr = btn.parentNode.parentNode;
+			delTr.remove();
+			this.getGoodsNumAndUpdate();
+			this.getGoodsPriceAndUpdate();			
+		}
+		
+		//绑定事件
+		getEvent(){
+			let oBtn = document.getElementsByTagName("button");
+			let that = this;
+			for(let i=0; i<oBtn.length; i++){
+				if(i%2==0){
+					oBtn[i].onclick = function(){
+						that.goodsMin(this);
+					}
+				}else{
+					oBtn[i].onclick = function(){
+						that.goodsPlus(this);
+					}
+				}
+			}
+			
+			let oDelBtn = document.getElementsByTagName("input");
+			for(let i=0; i<oDelBtn.length; i++){
+				oDelBtn[i].onclick = function(){
+					that.delGoods(this);
+				}
+			}
+		}
+	}
+	
+	let cart = new Cart();
+	cart.getEvent();
+</script>

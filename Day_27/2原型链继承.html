@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script>
+	function Animal(newName,newAge){
+		this.name = newName;
+		this.age = newAge;
+	}
+	
+	Animal.prototype.eat = function(){
+		console.log("eat");
+	}
+	
+	function Person(newId){
+		this.id = newId;
+	}
+	
+	Person.prototype = new Animal("老王",18);
+	
+	Person.prototype.makeTools = function(){
+		console.log("制造工具");
+	}
+	
+	function Student(newScore){
+		this.score = newScore;
+	}
+	
+	Student.prototype = new Person(9527);
+	
+	Student.prototype.study = function(){
+		console.log("study");
+	}
+	
+	let s = new Student(99);
+	
+	console.log(s.name,s.age,s.id,s.score);
+	s.eat();
+	s.makeTools();
+	s.study();
+	
+</script>

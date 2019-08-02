@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<style>
+			#oImg{
+                width: 500px;
+                height: 300px;
+               background: url(img/0.jpg) no-repeat;
+                background-size: 500px 300px;
+                position: relative;
+                margin: 100px auto;
+            }
+            #btn-previous{
+                width: 30px;
+                position: absolute;
+                left: 25px;
+                top:150px;
+            }
+            #btn-next{
+                width: 30px;
+                position: absolute;
+                left: 450px;
+                top:150px;
+            }
+            li{
+                list-style: none;
+                width: 10px;
+                height: 10px;
+                background: black;
+                border-radius: 50%;
+                margin: 10px;
+                float: left;
+            }
+            ul{
+                position: absolute;
+                left: 120px;
+                top:250px;
+            }
+		</style>
+		<title></title>
+	</head>
+	<body>
+		<div id = "oImg">
+            <input id="btn-previous" type="button" value="<"/>
+            <input id="btn-next" type="button" value=">"/>
+            <ul>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+		</div>
+	</body>
+</html>
+<script>
+	class Banner{
+		constructor(newOimg,newOli) {
+		    this.index = 0;
+			this.oImg = newOimg;
+			this.oLi = newOli;
+			this.oImg.style.background = "url(img/"+this.index+".jpg)";
+			this.oLi[this.index].style.background = "red";
+			this.time = null;
+			
+		}
+		
+		//设置li此时背景颜色的状态
+		setLiColor(){
+			for(let i=0; i<this.oLi.length; i++){
+				if(i == this.index){
+					this.oLi[i].style.background = "red";
+				}else{
+					this.oLi[i].style.background = "black";
+				}
+			}
+		}
+		
+		//设置div此时背景的图片状态
+		setOimgBackGround(){
+			this.oImg.style.background = "url(img/"+this.index+".jpg)";
+			
+}
+		
+		//点击下一个按钮
+		nextBtn(){
+			let nextBtn = document.querySelector("#btn-next");
+			let that = this;
+			nextBtn.onclick = function(){
+				that.index++;
+				if(that.index == that.oLi.length){
+					that.index = 0;
+				}
+				that.setLiColor();
+				that.setOimgBackGround();
+			}
+		}
+		
+		//点击上一个按钮
+		previousBtn(){
+			let previousBtn = document.querySelector("#btn-previous");
+			let that = this;
+			previousBtn.onclick = function(){
+				that.index--;
+				if(that.index == -1){
+					that.index = that.oLi.length-1;
+				}
+				that.setLiColor();
+				that.setOimgBackGround();
+			}
+		
+		}
+		
+		//添加li的事件
+		eventBindLi(){
+			let that = this;
+			for(let i=0; i<this.oLi.length; i++){
+				this.oLi[i].onclick = function(){
+					that.index = i;
+					that.setLiColor();
+					that.setOimgBackGround();
+				}
+			}
+			
+		}
+		settime(){
+			let that = this;
+			
+			clearInterval(this.time);
+			this.time=setInterval(function(){
+				
+				that.index++;
+				if(that.index==that.oLi.length){
+					that.index=0;
+				}
+				oDiv.onmouseover = function(){
+				clearInterval(that.time);
+			}
+			oDiv.onmouseout = function(){
+				that.settime();
+			}
+		
+				that.setLiColor();
+				that.setOimgBackGround();
+
+			},2000)
+		}
+
+	
+	
+		
+
+
+		showbanner=function(){
+			banner.nextBtn();
+			banner.previousBtn();
+			banner.eventBindLi();
+			banner.settime();
+		}
+	}
+
+	
+	let oDiv = document.getElementById("oImg");
+	let oLi = document.getElementsByTagName("li");	
+	let banner = new Banner(oDiv,oLi);
+	banner.showbanner();
+
+</script>

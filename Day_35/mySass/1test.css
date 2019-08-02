@@ -1,0 +1,35 @@
+#box1 {
+  background: yellow;
+  height: 200px;
+  font-size: 22px;
+  width: 100px; }
+
+#box2 {
+  background: blue;
+  height: 200px;
+  font-size: 22px;
+  width: 200px; }
+
+#box3 {
+  background: skyblue;
+  height: 200px;
+  font-size: 22px;
+  width: 100px; }
+
+#box4 {
+  background: skyblue;
+  height: 200px;
+  font-size: 22px;
+  width: 60px; }
+
+#box5 {
+  width: 100px;
+  height: 100px;
+  background: yellow;
+  color: #333; }
+  #box5 a {
+    font-size: 14px; }
+    #box5 a:hover {
+      text-decoration: underline; }
+
+/*# sourceMappingURL=1test.css.map */

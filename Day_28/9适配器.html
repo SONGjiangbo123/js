@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script>
+	class OldClass{
+        constructor() {
+            
+        }
+        oldFun(param1){//假设在使用的地方突然有两个参数
+                       //此时就需要一个转换函数来实现该功能
+            
+        }
+    }
+	
+	class Adapter{
+		constructor(newOldClass){
+			this.oldClass = newOldClass;
+		}
+		newFun(param1,param2){
+			this.oldClass.oldFun(param1);
+			param2 = "heihei";
+		}
+	}
+	
+	let newAdapter = new Adapter(new OldClass());
+	newAdapter.newFun(111,222);
+</script>

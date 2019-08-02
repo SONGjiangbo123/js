@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		用户名:<input type="text" id="t1" /></br>
+        密码:<input type="text" id="t2" /></br>
+        <input type="button" value="注册" id="btn"/>
+	</body>
+</html>
+<script>
+	let name = document.getElementById("t1");
+    let pwd = document.getElementById("t2");
+    let btn = document.getElementById("btn");
+	
+	btn.onclick = function(){
+		document.cookie = "name="+name.value;
+		document.cookie = "pwd="+pwd.value;
+		location.href = "5cookieLogin.html";
+	}
+</script>

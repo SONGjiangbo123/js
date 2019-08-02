@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			*{
+                margin: 0;
+                padding: 0;
+            }
+            ul{
+                height: 150px;
+                width: 800px;
+                position: relative;
+                margin: 0 auto;
+                background: yellow;
+            }
+            ul li{
+                width:40px;
+                height:150px;
+                list-style: none;
+                overflow: hidden;
+                border: 1px solid black;
+                float: left;
+            }
+            img{
+                background-size: 240px;
+                height:150px;
+                width:240px;
+            }
+		</style>
+	</head>
+	<body>
+		 <ul>
+            <li>
+                <img src="img/1.jpg" >
+            </li>
+            <li>
+                <img src="img/2.jpg" >
+            </li>
+            <li>
+                <img src="img/3.jpg" >
+            </li>
+            <li>
+                <img src="img/4.jpg" >
+            </li>
+            <li>
+                <img src="img/5.jpg" >
+            </li>
+        </ul>
+	</body>
+</html>
+<script src="jQuery.js"></script>
+<script>
+	$(function(){
+		$("li").mouseover(function(){
+			$(this).stop().animate({
+				width:240
+			}).siblings("li").stop().animate({
+				width:40
+			});
+		});
+	});
+</script>

@@ -1,0 +1,48 @@
+@charset 'utf-8';
+
+$myHeight:200px;
+$myColor:yellow;
+$myFontSize:22px;
+#box1 {
+    background:$myColor;
+    height: $myHeight;
+    font-size: $myFontSize;
+    width: 100px;
+}
+
+$myStringSize:size;
+#box2 {
+    background:blue;
+    height: $myHeight;
+    font-#{$myStringSize}: $myFontSize;
+    width: 200px;
+}
+
+$color: skyblue;
+$color: blue !default;
+#box3 {
+    background:$color;
+    height: $myHeight;
+    font-size: $myFontSize;
+    width: 100px;
+}
+
+#box4 {
+    background:$color;
+    height: $myHeight;
+    font-size: $myFontSize;
+    width: 2 * 30px;
+}
+
+#box5 {    
+    width: 100px;
+    height: 100px;
+    background: yellow;
+    color: #333;
+    a {
+       font-size:14px;
+       &:hover {
+          text-decoration:underline;
+       }
+    }
+}    

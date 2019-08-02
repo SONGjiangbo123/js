@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<ul>
+			<li>1</li>
+			<li>2</li>
+			<li>3</li>
+			<li>4</li>
+			<li>5</li>
+		</ul>
+		<button>添加</button>
+	</body>
+</html>
+<script>
+	var oLi = document.getElementsByTagName("li");
+	
+	for (var i = 0; i < oLi.length; i++) {
+		oLi[i].onmouseover = function() {
+			this.style.background = "green";
+		}
+		oLi[i].onmouseout = function() {
+			this.style.background = "";
+		}
+	}
+
+	var oBtn = document.querySelector("button");
+	oBtn.onclick = function() {
+		var e = document.createElement("li");
+		e.innerHTML = "heihei";
+		document.querySelector("ul").appendChild(e);
+
+		for (var i = 0; i < oLi.length; i++) {
+			oLi[i].onmouseover = function() {
+				this.style.background = "green";
+			}
+			oLi[i].onmouseout = function() {
+				this.style.background = "";
+			}
+		}
+	}
+</script>

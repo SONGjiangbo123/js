@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div{
+            width: 70px;
+            height: 50px;
+            margin: 100px auto;
+            text-align: center;
+            line-height: 50px;
+        }
+    
+    </style>
+</head>
+<body id="color1">
+    <div>
+        等4秒
+    </div>
+    <script>
+ 
+        function time(){
+        var x=0;
+        var color="#";
+        var color1=document.getElementById("color1");
+        var arr="123456789abcdef";
+        for(var i=0;i<arr.length;i++){
+             color="#";
+             for(var j=0;j<6;j++){
+            color+=arr[Math.round(Math.random()*15)];
+             }
+            color1.style.backgroundColor=color;
+          }
+        }
+    time();
+        var x=0;
+    var times=setInterval(function(){
+        time();
+        x++;
+        if(x>40){
+           clearInterval(times);
+        //    confirm("眼瞎了没");
+           if (confirm("眼瞎了没")==true){
+            setInterval(time,50);
+               
+            }else{
+            alert("好怂")
+            }
+        
+           }
+    }, 100);
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script>
+// 	class 类名{
+// 		类体;
+// 	}
+	class Student{
+		//constructor构造方法
+		constructor(newName,newAge,newId) {
+		   this.name = newName;
+		   this.age = newAge;
+		   this.id = newId; 
+		}
+		
+		eat(){
+			console.log("eat()");
+		}
+		
+		sleep(){
+			console.log("sleep()");
+		}
+		
+		showValue(){
+			console.log(this.name,this.age,this.id);
+			this.eat();
+			this.sleep();
+		}
+	}
+	
+	//对象的定义
+	let stu1 = new Student("小明",6,666);
+	stu1.showValue();
+</script>

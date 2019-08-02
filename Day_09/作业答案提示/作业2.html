@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>动态向列表中插入节点</title>
+</head>
+<body>
+	<input type="text" id="In">
+	<input type="button" id="btn" value="往列表中添加元素" >
+	<input type="button" id="del" value="删除元素" >
+	<ul id="uls">
+		<li>苹果</li>
+		<li>香蕉</li>
+		<li>橘子</li>
+	</ul>
+</body>
+</html>
+<script>
+window.onload=function(){
+	var inputNum=document.getElementById("In");
+	var btn=document.getElementById("btn");
+	var uls=document.getElementById("uls");
+	var del=document.getElementById("del");
+	btn.onclick=function(){
+		var e1=document.createElement("li");
+		var txt1=document.createTextNode(inputNum.value);
+		e1.appendChild(txt1);
+		uls.appendChild(e1);
+	}
+	del.onclick=function(){
+		uls.removeChild(uls.lastElementChild);
+	}
+}
+</script>

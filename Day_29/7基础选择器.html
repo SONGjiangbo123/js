@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		    <style>
+            *{
+                height: 25px;
+            }
+        </style>
+	</head>
+	<body>
+		<div id="box1" class = "box">
+            1
+        </div>
+        <div id="box2" class = "box">
+            2
+        </div>
+        <div id="box3" class = "box">
+            3
+        </div>
+		<p>4</p>
+		<p>5</p>
+		<span>3</span>
+        <strong>4</strong>
+	</body>
+</html>
+<script src="myjQuery.js"></script>
+<script>
+	$(function(){
+		//1.ID选择器(只代表唯一一个元素)
+		//JS写法
+		//$("#box1").css("background","red");
+		//CSS写法
+		//$("#box1").css({background:"red"});
+		
+		//2.类选择
+		//$(".box").css({background:"red"});
+		
+		//3.标签选择器
+		// $("p").css({background:"red"});
+		
+		//4.群组选择器
+		//$("p,strong,span").css({background:"red"});
+		
+		//5.通配符选择器
+		$("*").css({background:"red"});
+	});
+
+</script>

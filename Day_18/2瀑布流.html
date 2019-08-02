@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+            div{
+                width: 200px;
+                position: absolute;
+            }
+        </style>
+	</head>
+	<body>
+
+	</body>
+</html>
+<script>
+	class WaterFall{
+		constructor() {
+		    
+		}
+		// 创建div	
+		createDiv(){
+			for(let i=0; i<14; i++){
+				let div = document.createElement("div");
+				let rnd = Math.round(Math.random()*300+50);
+				div.innerHTML = i;
+				div.style.height = rnd + "px";
+				div.style.background = "url(img/"+i+".jpg)";
+				div.style.backgroundSize = "200px " + rnd + "px";
+				document.body.appendChild(div);
+				this.change();
+			}
+		}
+		// 排列布局
+		change(){
+			// 一排能放几个图片
+			let n = Math.floor(window.innerWidth/210);
+			let oDiv = document.getElementsByTagName("div");
+			let arrH = [];//创建数组保存div高度
+			
+			for(let i=0; i<oDiv.length; i++){
+				if(arrH.length == n){//存在图片证明第一列已有照片
+					let index = this.finMin(arrH);
+					oDiv[i].style.top = arrH[index] + 10 + "px";
+					oDiv[i].style.left = index * 200 + index * 10 + "px";
+					// 高度累加
+					arrH[index] += oDiv[i].offsetHeight + 10;
+				}else{//没有存在图片
+					oDiv[i].style.top = 0;
+					oDiv[i].style.left = i * 200 + i * 10 + "px";
+					arrH[i] = oDiv[i].offsetHeight;
+				}
+			}
+		}
+		// 判断最低高度
+		finMin(arr){
+			let index = 0;
+			for(let i=0; i<arr.length; i++){
+				if(arr[index] > arr[i]){
+					index = i;
+				}
+			}
+			
+			return index;
+		}
+		
+		onscroll(){
+			let that = this;
+			window.onscroll = function(){
+				let top = document.documentElement.scrollTop || document.body.scrollTop;
+				// 
+				if(top>400&&top<1000){
+					that.createDiv();
+				}
+			}
+		}
+	}
+	
+	let wf = new WaterFall();
+	wf.createDiv();
+	wf.createDiv();
+	wf.onscroll();
+</script>

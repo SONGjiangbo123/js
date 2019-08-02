@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			 #box{
+                width:    100px;
+                height: 100px;
+                background: #FF0000;
+            }
+		</style>
+	</head>
+	<body>
+		<div id="box">
+            
+        </div>
+	</body>
+</html>
+<script>
+	//this用来修饰普通方法
+// 	function fun(){
+// 		console.log(this);
+// 	}
+// 	
+// 	fun();
+
+// 	setTimeout(function(){
+// 		console.log(this);
+// 	},1000);
+
+// 	document.onclick = function(){
+// 		console.log(this);
+// 	}
+
+ 	let oBox = document.querySelector("#box");
+// 	
+// 	document.onclick = function(){
+// 		this.style.display = "none";
+// 	}.bind(oBox);
+	
+	function fun(){
+		console.log(this);
+	}
+	//fun();
+	//fun.call(oBox);
+	//fun.apply(oBox);
+</script>

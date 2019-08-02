@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<ul id="list">
+            <li>槑槑</li>
+            <li>晶晶</li>
+            <li>叕叕</li>
+        </ul>
+	</body>
+</html>
+<script>
+	var oList = document.getElementById("list");
+	var oLi = document.createElement("li");
+	
+	oLi.innerHTML = "淼淼";
+	oList.insertBefore(oLi,oList.children[2]);
+</script>

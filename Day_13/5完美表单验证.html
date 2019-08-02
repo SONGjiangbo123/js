@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<form action="#" method="get">
+			ID:<input type="text" id="userName"/><span></span></br>
+			PWD:<input type="text" id="pwd"/><span></span></br>
+			<input type="submit" value="提交"/>
+		</form>
+	</body>
+</html>
+<script>
+	var oForm = document.querySelector("form");
+	var usnerName = document.getElementById("userName");
+	var pwd = document.getElementById("pwd");
+	var flagName = null;
+	var flagpwd = null;
+	
+	usnerName.onblur = function(){
+		var regName = /^laowang$/;
+		var str = this.value;
+		if(regName.test(str)){
+			flagName = true;
+			this.nextElementSibling.innerHTML = "";
+		}else{
+			flagName = false;
+			this.nextElementSibling.innerHTML = "用户名输入格式不正确";
+		}
+	}
+	
+	pwd.onblur = function(){
+		var regPwd = /^123456$/;
+		var str = this.value;
+		if(regPwd.test(str)){
+			flagpwd = true;
+			this.nextElementSibling.innerHTML = "";
+		}else{
+			flagpwd = false;
+			this.nextElementSibling.innerHTML = "密码输入格式不正确";
+		}
+	}
+	
+	oForm.onsubmit = function(){
+		if(flagName && flagpwd){
+			return true;
+		}else{
+			return false;
+		}
+	}
+	
+</script>

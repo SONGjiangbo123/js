@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			#box {
+				height: 100px;
+				width: 50px;
+				background: red;
+				position: absolute;
+				top: 300px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box" onmouseover="toLong()" onmouseout="toShort()">分享到</div>
+	</body>
+</html>
+<script>
+	var box = document.querySelector("#box");
+	var timeL = null;
+	var timeS = null;
+	
+	function toLong() {
+		clearInterval(timeL);
+		clearInterval(timeS);
+		timeL = setInterval(function() {
+			box.style.width = box.offsetWidth + 5 + "px";
+			if (box.offsetWidth >= 200) {
+				box.style.width = 200 + "px";
+				clearInterval(timeL);
+			}
+		}, 50);
+	}
+
+	function toShort() {
+		clearInterval(timeL);
+		clearInterval(timeS);
+		timeS = setInterval(function() {
+			box.style.width = box.offsetWidth - 5 + "px";
+			if (box.offsetWidth <= 50) {
+				box.style.width = 50 + "px";
+				clearInterval(timeS);
+			}
+		}, 50);
+	}
+	
+</script>

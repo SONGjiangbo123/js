@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			#box{
+                width: 700px;
+                height: 300px;
+                background-size: 500px 300px;
+                position: relative;
+                margin: 100px auto;
+                border: 1px solid red;
+            }
+            #btn-previous{
+                width: 30px;
+                position: absolute;
+                left: 25px;
+                top:250px;
+            }
+            #btn-next{
+                width: 30px;
+                position: absolute;
+                left: 650px;
+                top:250px;
+            }
+            li{
+                list-style: none;
+                width: 120px;
+                height: 200px;
+                margin: 10px;
+                float: left;
+                border: 1px solid red;
+                background: url(images/1.jpg);
+            }
+            ul{
+                position: absolute;
+                left: 25px;
+                top:20px;
+            }
+            img{
+                width: 120px;
+                height: 200px;
+            }
+            p{
+                text-align: center;
+            }
+		</style>
+	</head>
+	<body>
+		<div id = "box">
+        <input id="btn-previous" type="button" value="<"/>
+        <input id="btn-next" type="button" value=">"/>
+        <ul>
+            <li>
+                <img/>
+                <p></p>    
+            </li>
+            <li>
+                <img/>
+                <p></p>    
+            </li>
+            <li>
+                <img/>
+                <p></p>    
+            </li>
+            <li>
+                <img/>
+                <p></p>    
+            </li>
+        </ul>
+	</div>
+	</body>
+</html>
+<script>
+	class Paging{
+		constructor(newLi){
+			this.index = 0;
+			this.arrJson = [];
+			this.arrOli =  newLi;
+		}
+		
+		//获取数据
+		getData(){
+			let that = this;
+			let xhr = new XMLHttpRequest();
+			xhr.open("get","list.json",true);
+			xhr.onreadystatechange = function(){
+				if(xhr.status == 200 && xhr.readyState == 4){
+					that.load(xhr.responseText);
+				}
+			}
+			xhr.send();
+		}
+		
+		//加载数据
+		load(str){
+			this.arrJson = JSON.parse(str);
+		}
+		
+		//分页赋值
+		setPagination(){
+			for(let i=this.index*4,j=0; i<this.index*4+4; i++,j++){
+				this.arrOli[j].firstElementChild.src = this.arrJson[i].img;
+				this.arrOli[j].lastElementChild.innerHTML = this.arrJson[i].info;
+			}
+		}
+		
+		next(){
+			let btnNext = document.getElementById("btn-next");
+			let that = this;
+			btnNext.onclick = function(){
+				that.index++;
+				if(that.index == that.arrJson.length/4){
+					that.index = 0;
+				}
+				that.setPagination();
+			}
+		}
+		
+		previous(){
+			let bntPrev = document.getElementById("btn-previous");
+			let that = this;
+			bntPrev.onclick = function(){
+				that.index--;
+				if(that.index == -1){
+					that.index = that.arrJson.length/4-1;
+				}
+				that.setPagination();
+			}
+		}
+	}
+	
+	let oLi = document.getElementsByTagName("li");
+	let p = new Paging(oLi);
+	
+	p.getData();
+	p.next();
+	p.previous();
+</script>

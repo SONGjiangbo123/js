@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script src="3ajaxPlugin.js"></script>
+<script>
+	function fun(str){
+		console.log(str);
+	}
+	
+	new Ajax({
+		"isAsyn":true,
+        "type":"get",
+        "url":"3test.php",
+        "data":"name=xiaoming",
+        "callBack":fun
+	}).myAjax();
+</script>

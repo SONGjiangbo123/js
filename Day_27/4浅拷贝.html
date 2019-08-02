@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script>
+	class Student{
+		constructor(newName,newId) {
+		    this.name = newName;
+			this.id = newId;
+		}
+		
+		clone(){
+			return new Student(this.name,this.id);//无名对象 返回一个地址
+		}
+		
+		eat(){
+			console.log("eat");
+		}
+	}
+	
+	let s1 = new Student("老王",666);
+	let s2 = s1.clone();
+	
+	//浅拷贝
+	s1.id = 777;
+	s1.name = "小明";
+	
+	console.log(s1.name,s1.id);
+	s1.eat();
+	console.log(s2.name,s2.id);
+	s2.eat();
+	
+</script>

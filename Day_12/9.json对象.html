@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script>
+	//josn对象格式:
+	//1.定义:
+	
+// 	var student = {
+// 		"name":"老王",
+// 		"age":8,
+// 		"hobby":"coding",
+// 		"sleep":function(){
+// 			console.log("老王在睡觉");
+// 		}
+// 	};
+
+//	字面量
+	var student = {
+		name:"老王",
+		age:8,
+		hobby:"coding",
+		sleep:function(){
+			console.log("老王在睡觉");
+		}
+	};
+	//student.index = 666;
+	//console.log(student.index);
+	//console.log(student["name"]);
+	//student.sleep();
+	
+	for(var index in student){
+		if(index != "sleep"){
+			console.log(student[index]);
+		}else{
+			student[index]();
+		}
+		
+	}
+</script>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script>
+	//1.创建对象  掏手机
+	let xhr = new XMLHttpRequest();
+	//2.open 拨号
+	//xhr.open("请求方式","电话号码","是否异步");
+	//xhr.open("get","hello.txt",true);
+	xhr.open("get","hello.php?name=xiaoming&pwd=666",true);
+	//3.设置回调函数   干啥事 
+	xhr.onreadystatechange = function(){
+		if(xhr.status == 200 && xhr.readyState == 4){
+			//5.响应信息
+			fun(xhr.responseText);
+		}
+	}
+	//4.发送 歪
+	xhr.send();
+	
+	function fun(str){
+		console.log(str);
+	}
+</script>

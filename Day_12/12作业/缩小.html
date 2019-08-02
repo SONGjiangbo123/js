@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+            div{
+                width: 100px;
+                height: 100px;
+                background: red;
+                position: absolute;
+            }
+            button:nth-child(1){
+            display: none;
+            }
+    </style>
+</head>
+<body>
+    <div id="_div">
+        <button id="btn1">缩小</button>
+        <button id="btn2">放大</button>
+    </div>
+    <script>
+        var oDiv=document.getElementById("_div");
+        oDiv.onmousedown=function(evt){
+            var e=evt||event;
+            var oDivx=e.offsetX,
+                oDivy=e.offsetY;
+                
+            document.onmousemove=function(evt){
+                var e=evt||event;
+                var x=e.pageX-oDivx;
+                var y=e.pageY-oDivy;
+                if(x<0){
+                    x=0;
+                }
+                if(y<0){
+                    y=0;
+                }
+                var maxx=window.innerWidth-oDiv.offsetWidth;
+                var maxy=window.innerHeight-oDiv.offsetHeight;
+                if(x>maxx){
+                    x=maxx;
+                }
+                if(y>maxy){
+                    y=maxy;
+                }
+                oDiv.style.left=x+"px";
+                oDiv.style.top=y+"px";
+            }
+            oDiv.onmouseup=function(){
+                document.onmousemove="";
+            }
+        
+        }
+        var btn1=document.getElementById("btn1"),
+            btn2=document.getElementById("btn2");
+            btn1.onclick=function(){
+                oDiv.style.width=100+"px";
+                oDiv.style.height=100+"px";
+                btn1.style.display="none";
+                btn2.style.display="block";
+            }
+            btn2.ondblclick=function(){
+                oDiv.style.width=100+"%";
+                oDiv.style.height=100+"%";
+                btn2.style.display="none";
+                btn1.style.display="block";
+            }
+    
+    </script>
+</body>
+</html>

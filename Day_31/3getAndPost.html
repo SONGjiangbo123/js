@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script src="jQuery.js"></script>
+<script>
+	$(function(){
+// 		$.get("test/3test.php",{name:"laowang",pwd:123},function(resText,status,xhr){
+// 			console.log(resText);
+// 			console.log(status);
+// 			console.log(xhr);
+// 		});
+		//$.get是有返回值的,返回的是promise对象,then方法的回调函数,第一个参数为resText
+// 		$.get("test/3test.php",{name:"laowang",pwd:123}).then(function(resText){
+// 			console.log(resText+"成功");
+// 		},function(resText){
+// 			console.log(resText+"失败");
+// 		});
+// 		
+// 		$.get().then(function(){},function(){});
+
+		$.post("test/3test.php",{name:"laowang",pwd:123},function(resText,status,xhr){
+			console.log(resText);
+			console.log(status);
+			console.log(xhr);
+		});
+	});
+</script>

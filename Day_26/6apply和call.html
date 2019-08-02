@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script>
+	function Monkey(newName,newAge){
+		this.name = newName;
+		this.age = newAge;
+	}
+	function Snake(newName,newAge){
+		this.name = newName;
+		this.age = newAge;		
+	}
+	function eat(str1,str2){
+		console.log(this.name + "吃" + str1 + "和" + str2);
+	}
+	
+	let m = new Monkey("孙悟空",500);
+	let s = new Snake("白素贞",1000);
+	//错误
+// 	m.eat("香蕉");
+// 	s.eat("许仙");
+
+	//接口（多态）:发出一个相同的消息,不同的对象实现不同的消息响应.
+	eat.call(m,"香蕉","桃子");
+	eat.call(s,"许仙","法海");
+	eat.apply(m,["香蕉","桃子"]);
+	eat.apply(s,["许仙","法海"]);
+</script>

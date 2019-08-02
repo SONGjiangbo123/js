@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="box">
+			1
+		</div>
+		<div class="box">
+			2
+		</div>
+		<p >
+			3
+		</p>
+	</body>
+</html>
+<script src="myjQuery.js"></script>
+<script>
+	$(function(){
+		//$("#box")返回包装集(可以理解为就是个数组)
+		//原生DOM和jQueryDom 是完全不同的两套API
+		//jQuery转原生
+		//console.log($("#box")[0].innerHTML);
+		//原生转jQuery 
+		let oBox = document.getElementById("box");
+		console.log($(oBox).html());
+	});
+</script>

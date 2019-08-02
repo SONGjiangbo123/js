@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<ul>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+	</body>
+</html>
+<script src="myRand.js"></script>
+<script>
+	var color = "#";
+	var str = "0123456789abcdef";
+	//var p = document.getElementById("_p");
+	var oLi = document.getElementsByTagName("li");
+	
+	for(var j=0; j<oLi.length; j++){
+		color = "#";
+		for(var i=0; i<6; i++){
+			color += str.charAt(rand(0,15));
+		}
+		oLi[j].style.background = color;
+	}
+	//style样式 : style.属性
+	//p.style.backgroundColor = color;
+</script>

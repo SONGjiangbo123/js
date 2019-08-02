@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			#box{
+				width: 300px;
+				height: 300px;
+				background: #008000;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box">
+			
+		</div>
+	</body>
+</html>
+<script src="jQuery.js"></script>
+<script>
+	$(function(){
+		$.getScript("test/4getScript.js",function(){
+				changeColor($("#box"));
+		});
+	});
+</script>

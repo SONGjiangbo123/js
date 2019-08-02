@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<!-- action当前的form表单，将表单中的所有元素体检给某个文件 -->
+		<form action="#" method="get">
+			ID:<input type="text" id="userName"/></br>
+			PWD:<input type="text" id="pwd"/></br>
+			<input type="submit" value="提交"/>
+		</form>
+	</body>
+</html>
+<script>
+	var oForm = document.querySelector("form");
+	
+	oForm.onsubmit = function(){
+		var usnerName = document.getElementById("userName");
+		var pwd = document.getElementById("pwd");
+		var regName = /^laowang$/;
+		var regPwd = /^123456$/;
+		
+		//验证用户名
+		if(!regName.test(usnerName.value)){
+			alert("用户名格式不正确");
+			return false;
+		}
+		
+		//验证用密码
+		if(!regPwd.test(pwd.value)){
+			alert("密码格式不正确");
+			return false;
+		}
+		
+		return true;
+	}
+</script>

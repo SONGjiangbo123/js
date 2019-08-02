@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		用户名:<input type="text" id="t1" /></br>
+		密码:<input type="text" id="t2" /></br>
+		<input type="button" value="注册" id="btn"/>
+	</body>
+</html>
+<script>
+	let name = document.getElementById("t1");
+	let pwd = document.getElementById("t2");
+	let btn = document.getElementById("btn");
+
+	
+	btn.onclick = function(){
+		let strCookie = document.cookie;
+		let arrCookie = strCookie.split("; ");
+		let myName = name.value;
+		let myPwd = pwd.value;
+		let flagName = false;
+		let flagPwd = false;
+		
+		for(let i=0; i<arrCookie.length; i++){
+			let temp = arrCookie[i].split("=");
+			
+			//key必须已知
+			if(temp[0] == "name"){
+				if(myName == temp[1]){
+					flagName = true;
+				}
+			}else if(temp[0] == "pwd"){
+				if(myPwd == temp[1]){
+					flagPwd = true;
+				}
+			}
+		}
+		
+		if(flagName && flagPwd){
+			console.log("登陆成功");
+		}else{
+			console.log("登陆失败");
+		}
+	}
+	
+	
+	
+	
+</script>

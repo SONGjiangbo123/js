@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script>
+	
+	function dateToString(d){
+		
+		var a = ["星期日",'星期一','星期二','星期三','星期四','星期五','星期六'];
+		var _y = d.getFullYear();
+		var _m = toTwo(d.getMonth()+1);
+		var _d = toTwo(d.getDate());
+		var _h = toTwo(d.getHours());
+		var _mm = toTwo(d.getMinutes());
+		var _s = toTwo(d.getSeconds());
+		var _w = d.getDay();
+		
+		var str = _y + "年" + _m + "月" + _d + "日" + _h + "时" + _mm + "分" + _s + "秒" + " " +a[_w];
+		
+		return str;
+	}
+	
+	function toTwo(value){
+		return value < 10? "0"+value:value;
+	}
+	
+	let d = new Date();
+	// console.log(dateToString(d));
+	//根据本地时间格式,将date对象打印成字符串
+	console.log(d.toLocaleString()); 
+</script>

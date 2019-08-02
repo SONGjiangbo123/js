@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<button type="button" onclick="fun()">删除</button>
+	</body>
+</html>
+<script>
+	//document.cookie = "键=值;expires=标准时间格式"
+// 	let date = new Date();
+// 	date.setDate(date.getDate()+10);
+// 	document.cookie = "name=laowang;expires="+date;
+
+	function fun(){
+		document.cookie = "name='';expires=-1";
+	}
+</script>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;margin: 0;
+        }
+    ul,li{
+        list-style: none;
+    }
+    ul{
+        width: 100px;
+        height: 120px;
+        display: none;
+    }
+    li{
+        width: 100px;
+        height: 30px;
+        text-align: center;
+        line-height: 30px;
+    }
+ 
+
+    </style>
+</head>
+<body>
+    <input type="text"> <button id="btn">xuanze</button>
+    <ul id="oul">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+    </ul>
+    <script>
+        var oli=document.getElementsByTagName("li"),
+            oput=document.getElementsByTagName("input"),
+            btn=document.getElementById("btn"),
+            oul=document.getElementById("oul");
+            btn.onclick=function(){
+                oul.style.display="block";
+            }
+            for(var i=0;i<oli.length;i++){
+                oli[i].onclick=function(){
+                    oput[0].value=this.innerHTML;
+                    oul.style.display="none";
+                }
+            }
+        
+    </script>
+</body>
+</html>

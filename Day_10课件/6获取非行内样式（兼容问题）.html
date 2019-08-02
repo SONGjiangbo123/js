@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			#box {
+				color: red;
+				font-size: 22px;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- 		<div id="box" style="color: red;"> 
+		</div> -->
+		<div id="box">
+
+		</div>
+	</body>
+</html>
+<script>
+	var box = document.querySelector("#box");
+//	document.write(box.currentStyle);
+	function getStyle(obj, attr) { //获取非行间样式，obj是对象，attr是值
+		if (obj.currentStyle) { //针对ie获取非行间样式
+			return obj.currentStyle[attr];
+		} else {
+			return getComputedStyle(obj, false)[attr]; //针对非ie
+		};
+	};
+	document.write(getStyle(box,"color"));
+	//行内样式
+	// 	console.log(box.style.color);
+	//非行内样式
+	//	console.log(getComputedStyle(box,false)["color"]);
+	//	console.log(getComputedStyle(box,false)["fontSize"]);
+	//	document.write(box.currentStyle["color"]);
+	//console.log(box.currentStyle["color"]);
+</script>

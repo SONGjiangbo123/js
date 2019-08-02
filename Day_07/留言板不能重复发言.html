@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    #n1{
+        display: block;
+        width: 600px;
+        height: 400px;
+        border:1px solid black;
+
+    }
+    </style>
+</head>
+<body>
+
+   <div>
+       <span>留言板（不能重复发言）</span>
+        <span id="n1"><p></p></span>
+        <div>
+            人名：
+            <input id="val2" type="text">
+        </div>
+        <div>
+            内容：
+            <input id="val1" type="text">
+        </div>
+        <input id="btn" type="button" value="提交">
+   </div>
+   <script>
+    var parent = document.getElementById("n1");
+    var i=1;
+    $("#btn").onclick=function(){
+        var val1=$("#val1").value;
+        var val2=$("#val2").value;
+            if($("p")[i-1].innerHTML!==val2+":"+val1){//相同发不出去
+            var para=document.createElement("p");
+            $("#n1").appendChild(para);
+            $("p")[i].innerHTML=val2+":"+val1;
+            i++;
+           console.log(i);
+           //不能超过四个
+            if(i>3){
+           remove1();
+           i--;
+           }
+          
+        }}
+
+    function remove1(){
+        var child = document.getElementsByTagName("p")[0];
+        parent.removeChild(child);
+    }
+
+    function $(str) {
+	if(str.charAt(0)=='#'){
+		return document.getElementById(str.substring(1));
+	}else if(str.charAt(0)=='.'){
+		return document.getElementsByClassName(str.substring(1));
+	}else{
+		return document.getElementsByTagName(str);
+	}
+}
+
+   </script>
+</body>
+</html>

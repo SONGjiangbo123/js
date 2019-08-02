@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script>
+	function Animal(newName){
+		this.name = newName;
+	}
+	
+	Animal.prototype.eat = function(){
+		console.log("eat");
+	}
+	
+	function Person(newId){
+		this.id = newId;
+	}
+	
+	Person.prototype = new Animal("老王");
+	
+	Person.prototype.study = function(){
+		console.log("study");
+	}
+	
+	
+	let p = new Person(111);
+	
+	console.log(p.name,p.id);
+	p.eat();
+	p.study();
+</script>

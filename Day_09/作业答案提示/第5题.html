@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>第5题</title>
+	<style>
+	td{
+		width:100px;
+		height:20px;
+		border:1px solid black;
+	}
+	table{
+		border-collapse: collapse;
+	}
+	#del{
+		width:50px;
+	}
+</style>
+</head>
+<body>
+	<table id="tb">
+		<tr>
+			<td>1</td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>2</td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>3</td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>4</td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>5</td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+	</table>
+	<input type="button" id="btn" value="创建表格">
+	删除第<input type="text" id="del">行：<input type="button" id="delBtn" value="删除">
+</body>
+</html>
+<script>
+window.onload=function(){
+	var btn=document.getElementById("btn");
+	var delBtn=document.getElementById("delBtn");
+	var delRow=document.getElementById("del");
+	var tb=document.getElementById("tb");
+	var i=5;
+	btn.onclick=function(){ 
+		var tr1=document.createElement("tr");
+		var td1=document.createElement("td");
+		var td2=document.createElement("td");
+		var td3=document.createElement("td");
+		var td4=document.createElement("td");
+		var td5=document.createElement("td");
+		var txt=document.createTextNode(++i);
+		var txta=document.createTextNode("");
+		tr1.appendChild(td1);
+		td1.appendChild(txt);
+		tr1.appendChild(td2);
+		tr1.appendChild(td3);
+		tr1.appendChild(td4);
+		tr1.appendChild(td5);
+		tb.childNodes[1].appendChild(tr1);
+		tb.childNodes[1].appendChild(txta);
+		console.log(tb.childNodes[1].childNodes);
+	}
+	delBtn.onclick=function(){
+			tb.childNodes[1].removeChild(tb.childNodes[1].childNodes[(delRow.value-1)*2]);
+			tb.childNodes[1].removeChild(tb.childNodes[1].childNodes[(delRow.value-1)*2]);
+			console.log(tb.childNodes[1].childNodes);
+			// console.log(tb.childNodes);
+			// var j=tb.childNodes[1].childNodes/2;
+			// for(var i=1;i<=j;i++){
+				
+			// }
+	}
+
+
+
+}
+</script>

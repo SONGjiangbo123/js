@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+        <input id="d1" type="text" value="one two three">
+        <button id="btn">转换</button>
+        <input id="d2" type="text">
+    <script>
+    var arr=document.getElementById("d1"),
+        arr1=document.getElementById("d2"),
+        btn=document.getElementById("btn");
+    btn.onclick=function(){
+        var arr2=arr.value;
+        var x=arr2.split(" ");
+        var y=[];
+      for(var i=0;i<x.length;i++){
+                y[i]=x[x.length-i-1];
+           }
+            arr1.value=[y,arr2];
+        }
+    </script>
+</body>
+</html>

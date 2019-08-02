@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>广告倒计时</title>
+</head>
+<body>
+	<p id="pDom">广告将于10秒后关闭</p>
+	<img id="pic" src="img/ad.jpg" alt="广告">
+</body>
+</html>
+<script>
+window.onload=function(){
+	setTimeout( function(){
+		document.getElementById("pic").style.display="none";
+	}
+		, 10000)
+	var sec=10;
+	var t=setInterval(function(){
+		sec--;
+		document.getElementById("pDom").innerHTML="广告将于"+sec+"秒后关闭";
+		if(sec<1){
+			clearInterval(t);
+			document.getElementById("pDom").innerHTML="广告已关闭！！！";
+		}
+	} , 1000)
+}
+</script>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script>
+	function Factory(color){
+		return {
+			 "screen":"this is screen",
+             "keybord":"this is keybord",
+             "mouse":"this is mouse",
+             "USB":"this is API of USB",
+             "storage":"this is storage",
+			 "color":color
+		}
+	}
+	
+	let _yellow = Factory("yellow");
+	let _red = Factory("red");
+	let _blue = Factory("blue");
+	
+	console.log(_yellow,_red,_blue);
+</script>

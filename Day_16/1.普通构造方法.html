@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+	<body>
+		
+	</body>
+</html>
+<script>
+	//类的定义 == 构造方法
+	function Student(newName,newAge,newId){
+		this.name = newName;//成员属性
+		this.age = newAge;
+		this.id = newId;
+		
+		this.eat = function(){//成员方法
+			console.log(this.name + "爱吃");
+		}
+		this.sleep = function(){
+			console.log(this.name + "要睡");
+		}
+		this.showValue = function(){
+			console.log(this.name,this.age,this.id);
+			this.eat();
+			this.sleep();
+		}
+	}
+	
+	//对象的创建
+	let stu1 = new Student("老王",8,9527);
+	let stu2 = new Student("小王",66,222);
+	//对象的使用
+	//对象名.属性或方法
+	stu1.name = "蔡徐坤";
+// 	console.log(stu1.name,stu1.age,stu1.id);
+// 	stu1.eat();
+// 	stu1.sleep();
+	//在类的成员方法中,this代表调用当前方法的对象本身
+	stu1.showValue();
+	stu2.showValue();
+</script>

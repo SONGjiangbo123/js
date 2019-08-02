@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			#box{
+				height: 100px;
+                width: 100px;
+                background: url(img/tiger.jpg);
+                background-size: 100px 100px;
+                position: absolute;
+                left: 200px;
+                top: 500px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box">
+			
+		</div>
+	</body>
+</html>
+<script>
+	var oBox = document.querySelector("#box");
+	
+	document.onclick = function(evt){
+		//事件对象,虽然目前没有
+		var e = evt || event;
+		oBox.style.top = 200 + "px" ;
+		
+		window.setTimeout(function(){
+			oBox.style.top = 500 + "px" ;
+		},2000);
+	}
+</script>

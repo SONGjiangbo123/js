@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script>
+	class Birthday{
+		constructor(newY,newM,newD) {
+		    this.y = newY;
+			this.m = newM;
+			this.d = newD;
+		}
+		
+		showValue(){
+			console.log(this.y,this.m,this.d);
+		}
+	}
+	
+	class Student{
+		constructor(newName,newAge,newId,newBir) {
+		   this.name = newName;
+		   this.age = newAge;
+		   this.id = newId; 
+		   this.bir = newBir;//关联
+		}
+		
+		eat(){
+			console.log("eat()");
+		}
+		
+		sleep(){
+			console.log("sleep()");
+		}
+		
+		showInfor(){
+			console.log(this.name,this.age,this.id);
+			//console.log(this.bir.y,this.bir.m,this.bir.d);
+			this.bir.showValue();
+		}
+	}
+	
+	let bir = new Birthday(2001,6,11);
+	
+	let stu = new Student("小红",18,777,bir);
+	
+	stu.showInfor();
+</script>

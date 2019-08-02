@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		#container{
+			width: 800px;
+			height: 400px;
+			margin: 30px auto;
+			border: 1px solid #b6b6b6;
+			position: relative;
+		}
+		#box{
+					
+			width: 50px;
+			height: 50px;
+			background: #f99;
+			border-radius: 50%;
+			position: absolute;
+			left: 100px;
+			top: 20px;
+
+		}
+
+	</style>
+
+	<script>
+		window.onload = function(){
+
+			var g = 1;  //重力加速度;
+			var vx = 1; //x轴速度;
+			var vy = 0;	//y轴速度;
+
+			var ball = document.getElementById("box");
+			var container = document.getElementById("container");
+
+			var cH = document.documentElement.clientHeight || document.body.clientHeight;
+			var containerHeight = container.offsetHeight;
+			var conTop = container.offsetTop;
+			var left,top;
+			
+			setInterval(function(){
+
+				if(ball.offsetTop >= containerHeight - ball.offsetHeight){
+
+					ball.style.top = containerHeight - ball.offsetHeight + "px";
+
+					vy = -vy*0.5;
+
+
+				}
+
+				vy = vy + g;
+
+				left = ball.offsetLeft + vx;
+				top = ball.offsetTop + vy;
+
+				ball.style.left = left + "px";
+				ball.style.top = top +  "px";
+
+			},30)
+
+
+		}
+
+
+	</script>
+</head>
+<body>
+	
+
+	<div id="container">
+			
+		<div id="box">
+			
+		</div>
+
+	</div>
+
+
+</body>
+</html>

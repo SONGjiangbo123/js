@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+	<body>
+		<div id="box">
+			
+		</div>
+	</body>
+</html>
+<script src="jQuery.js"></script>
+<script>
+	$(function(){
+		//load必须通过jQueryDom元素来调用
+		//回调函数会在异步操作之后执行
+		$("#box").load("test/1load.txt",function(){
+			console.log($("#box").html());
+		});
+	});
+</script>

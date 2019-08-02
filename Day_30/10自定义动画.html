@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			div {
+				width: 200px;
+				height: 200px;
+				background: #87CEEB;
+				position: absolute;
+			}
+		</style>
+	</head>
+	<body>
+		<button>按钮1</button>
+		<button>按钮2</button>
+		<div>
+		
+		</div>
+	</body>
+</html>
+<script src="jQuery.js"></script>
+<script>
+	$(function(){
+		$("button").eq(0).click(function(){
+			//动画队列
+			$("div").animate({
+				width:50,
+				height:50
+			},1000).animate({
+				left:600
+			},1000).animate({
+				top:500
+			},1000).animate({
+				left:0
+			},1000).animate({
+				top:30
+			});
+		});
+
+		$("button").eq(1).click(function(){
+			$("div").stop(true,true);
+		});
+	});
+</script>

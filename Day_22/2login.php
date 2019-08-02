@@ -1,0 +1,18 @@
+<?php
+	header("Content-type:text/html;charset=utf-8");
+	
+	$name = $_POST["username"];
+	$pwd = $_POST["userpwd"];
+	
+	$conn = mysql_connect("localhost","root","root");
+	
+	mysql_select_db("my1904");
+	
+	$result = mysql_query("select * from student where stuid = '$name'",$conn);
+	
+	if(mysql_num_rows($result)==1){
+		echo "登录成功";
+	}else{
+		echo "登录失败";
+	}
+?>

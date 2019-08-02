@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="box"></div></br>
+		<button>关注并加载更多</button>
+	</body>
+</html>
+<script>
+	let oBox = document.querySelector("#box");
+	let oBtn = document.querySelector("button");
+	
+	function getNews(page){
+		let xhr = new XMLHttpRequest();
+		
+		xhr.open("get","4getNews.php?page="+page,true);
+		
+		xhr.onreadystatechange = function(){
+			if(xhr.status == 200 && xhr.readyState == 4){
+				oBox.innerHTML += xhr.responseText;
+			}
+		}
+		
+		xhr.send();
+	}
+	
+	getNews(1);
+	oBtn.onclick = function(){
+		getNews(2);
+		this.style.display = "none";
+	}
+</script>
